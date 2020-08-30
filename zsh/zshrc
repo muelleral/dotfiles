@@ -1,0 +1,26 @@
+
+export ZSH_DOT_DIR="/home/alex/project/dotfiles/zsh"
+
+ZSH_THEME="agnoster"
+
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+plugins=(
+    git
+    bundler
+    web-search
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+source $ZSH_DOT_DIR/z.sh
+source $ZSH_DOT_DIR/zsh_aliases
+source $ZSH_DOT_DIR/zshrc_local
+
+# custom bindings
+bindkey '^l' autosuggest-accept
+
+export FZF_DEFAULT_COMMAND='ag'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"

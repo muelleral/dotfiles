@@ -1,0 +1,10 @@
+
+export PATH=$PATH:~/tools/nvim/bin
+export XDG_CONFIG_HOME="/home/alex/.config"
+
+# virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
+source ~/.local/bin/virtualenvwrapper.sh
