@@ -33,4 +33,6 @@ bindkey '^l' autosuggest-accept
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 # this line must be at the end of the file to have an effect
-prompt_context(){}  #hide user@hostname prompt
+prompt_context(){
+    prompt_segment default default "%(!.%{%F{yellow}%}.)$USER"
+}  #hide user@hostname prompt
