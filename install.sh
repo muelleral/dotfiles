@@ -7,3 +7,4 @@ sudo apt upgrade -y
 sh install/zsh_install.sh
 sh install/python_install.sh
 sh install/utils_install.sh
+sh install/nvim_install.sh
