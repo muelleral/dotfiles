@@ -8,3 +8,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 sudo apt install exuberant-ctags
+
+sudo apt install tmux -y
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
