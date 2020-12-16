@@ -1,1 +1,1 @@
-Scripts are only tested with Ubuntu20.04
+cripts are only tested with Ubuntu20.04
