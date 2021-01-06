@@ -1,6 +1,12 @@
 #!/bin/sh
 
-sudo apt install neovim -y
+# install nvim as appimage (in sugguested location ${HOME}/Applications/ or ${HOME}/.local/bin/ or ${HOME}/bin/)
+cd ~/.local/bin 
+curl -LO https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
+cd -
+chmod u+x ~/.local/bin/nvim.appimage
+ln -s ~/.local/bin/nvim.appimage ~/.local/bin/nvim
+
 sudo apt install nodejs -y
 sudo apt install npm -y
 
@@ -16,5 +22,5 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim --headless +PlugInstall +qa
 
 # Configure CoC
-nvim --headless "+CocInstall coc-python" +qa
+#nvim --headless "+CocInstall coc-python" +qa
 
