@@ -13,6 +13,13 @@ sudo apt install npm -y
 sudo npm install -g neovim
 
 pip3 install neovim
+
+LOCAL_VIMRC=~/.config/nvim/local.vim
+if [ ! -f $LOCAL_VIMRC ]; then 
+    PYTHON_PATH=$(which python3)
+    echo "let g:python3_host_prog = '$PYTHON_PATH'" > $LOCAL_VIMRC
+fi
+
 # create a symLink to the nvim configuration
 nvim --headless +"call mkdir(stdpath('config'), 'p')" +"exe 'edit '.stdpath('config').'/init.vim'" +qa
 ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
