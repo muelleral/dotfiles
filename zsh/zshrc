@@ -4,14 +4,12 @@
 ZSH_THEME="agnoster"
 
 # set the default editor. Is used for aliases 
-export EDITOR=$(which nvim)
+export EDITOR="$(which nvim)"
 
 plugins=(
-    bundler
     colored-man-pages
     git
     pip
-    web-search
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
