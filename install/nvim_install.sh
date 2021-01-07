@@ -12,6 +12,7 @@ sudo apt install npm -y
 
 sudo npm install -g neovim
 
+pip3 install neovim
 # create a symLink to the nvim configuration
 nvim --headless +"call mkdir(stdpath('config'), 'p')" +"exe 'edit '.stdpath('config').'/init.vim'" +qa
 ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim

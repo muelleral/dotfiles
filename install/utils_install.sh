@@ -17,6 +17,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # install tmux and create a symlink to the config
 sudo apt install tmux -y
 ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+sudo apt install tmuxinator -y
 
 # install a faster grep alternative
 sudo apt install silversearcher-ag -y
