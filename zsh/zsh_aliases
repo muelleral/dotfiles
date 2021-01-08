@@ -1,2 +1,3 @@
 alias zshconf="$EDITOR $ZSH_DOT_DIR/zshrc"
 alias ohmyzsh="$EDITOR $ZSH/oh-my-zsh"
+alias tx="tmuxinator"

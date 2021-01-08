@@ -34,6 +34,8 @@ sudo apt install npm -y
 # use "curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -" to get required version
 sudo npm install -g neovim
 
+
 #install coc extensions 
 nvim --headless "+CocInstall coc-python" +qa
+nvim --headless "+CocInstall coc-yank" +qa
 

@@ -8,7 +8,7 @@ Plug 'tpope/vim-unimpaired'
 
 " appearance
 Plug 'rakr/vim-one'
-Plug 'machakann/vim-highlightedyank'
+"Plug 'machakann/vim-highlightedyank'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'

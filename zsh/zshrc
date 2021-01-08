@@ -3,9 +3,6 @@
 
 ZSH_THEME="agnoster"
 
-# set the default editor. Is used for aliases 
-export EDITOR="$(which nvim)"
-
 plugins=(
     colored-man-pages
     git
@@ -19,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/zshrc_local
+
+# set the default editor. Is used for aliases 
+export EDITOR="$(which nvim)"
 
 # change the foreground color to black for the ls command
 LS_COLORS=$LS_COLORS:'ow=30;42'; export LS_COLORS
