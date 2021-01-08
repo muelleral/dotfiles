@@ -1,3 +1,11 @@
+" Install coc extensions
+let g:coc_global_extensions = [
+    \ 'coc-json', 
+    \ 'coc-python', 
+    \ 'coc-yank',
+    \ ]
+
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 
