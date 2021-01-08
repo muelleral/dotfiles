@@ -1,1 +1,1 @@
-cripts are only tested with Ubuntu20.04
+Clone this repo to ~/dotfiles otherwise the created symlinks will not work.
