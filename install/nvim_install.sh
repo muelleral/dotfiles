@@ -27,9 +27,10 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim --headless +PlugInstall +qa
 
 # Configure CoC
+# Coc requires current verion of nodejs. Availabe ubuntu package is to old. Therefore get new nodjs sources before
+# installinng. 
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+
 sudo apt install nodejs -y
 sudo apt install npm -y
-
-# nodejs >= 10 required. ubuntu 18.04 provides only 8. 
-# use "curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -" to get required version
 sudo npm install -g neovim
