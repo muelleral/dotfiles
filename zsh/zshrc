@@ -17,6 +17,10 @@ source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/zshrc_local
 
+# configure XDG user variables if not set
+[[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME/.config"
+[[ -z "$XDG_DATA_HOME" ]] && export XDG_DATA_HOME="$HOME/.local/share"
+
 # set the default editor. Is used for aliases 
 export EDITOR="$(which nvim)"
 
