@@ -1,7 +1,14 @@
+" Main settings {{{
 " Install coc extensions
 let g:coc_global_extensions = [
+    \ 'coc-clangd', 
+    \ 'coc-cmake', 
+    \ 'coc-explorer', 
     \ 'coc-json', 
+    \ 'coc-lists', 
     \ 'coc-pyright', 
+    \ 'coc-vimlsp',
+    \ 'coc-yaml',
     \ 'coc-yank',
     \ ]
 
@@ -115,7 +122,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
@@ -128,8 +135,11 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
+" }}}
+" coc-yank {{{
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-
-
+" }}}
+" coc-explorer {{{
+nmap <space>e :CocCommand explorer<CR>
+" }}}
+" vim:foldmethod=marker:foldlevel=0

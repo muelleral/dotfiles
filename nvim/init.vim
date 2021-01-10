@@ -1,6 +1,8 @@
 let s:is_win = has('win32') || has('win64')
+let $vim_config_dir = stdpath('config') 
+let $vim_data_dir = stdpath('data')
 
-call plug#begin(stdpath('data').'/plugged')
+call plug#begin($vim_data_dir.'/plugged')
 
 Plug 'SirVer/ultisnips'
 Plug 'mhinz/vim-startify'
@@ -8,7 +10,6 @@ Plug 'tpope/vim-unimpaired'
 
 " appearance
 Plug 'rakr/vim-one'
-"Plug 'machakann/vim-highlightedyank'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
@@ -43,7 +44,7 @@ call plug#end()
 
 " Main settings {{{
 " ============================================================================
-let $vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
+"let $vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
 
 filetype plugin indent on
 syntax on
@@ -226,7 +227,7 @@ command! RemoveTrailingWhiteSpaces silent :let _save_pos=getpos(".") <Bar>
 " }}}
 " Local vimrc {{{
 " local vim modifications
-let s:local_vimrc = $vim_dir.'/local.vim'
+let s:local_vimrc = $vim_config_dir.'/local.vim'
 if filereadable(s:local_vimrc)
   execute 'source' s:local_vimrc
 endif
@@ -234,7 +235,7 @@ endif
 " ------------------------------------------------------------------
 " --  Plugin config
 " ------------------------------------------------------------------
-source $HOME/.config/nvim/coc.vim
+source $vim_config_dir/coc.vim
 " airline {{{
 " ============================================================================
 let g:airline#extensions#tabline#enabled = 1
@@ -365,7 +366,7 @@ nnoremap <leader>gu :SignifyHunkUndo!<cr>
 " Startify {{{
 " ============================================================================
 " Bookmarks are set in private.vim
-let g:startify_session_dir = $vim_dir.'/session'
+let g:startify_session_dir = $vim_data_dir.'/session'
 let g:startify_relative_path = 1
 
 " commands executed befor saving
