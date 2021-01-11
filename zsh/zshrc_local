@@ -1,8 +1,8 @@
 export PATH=$HOME/.local/bin:/usr/local/bin:bin$PATH
 
 # virtualenvwrapper settings
-export WORKON_HOME=${XDG_DATA_HOME:-HOME}/.virtualenvs
-export PROJECT_HOME=${XDG_DATA_HOME:-HOME}/Devel
+export WORKON_HOME=${XDG_DATA_HOME:-$HOME}/.virtualenvs
+export PROJECT_HOME=${XDG_DATA_HOME:-$HOME}/Devel
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
 source ~/.local/bin/virtualenvwrapper.sh

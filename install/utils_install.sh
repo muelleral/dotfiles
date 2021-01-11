@@ -11,8 +11,9 @@ sudo apt install fd-find -y
 ln -s /usr/bin/fdfind ~/.local/bin/fd
 
 # the --all argument will install all without confirmation
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ${XDG_CONFIG_HOME:-$HOME/.config}/fzf
+${XDG_CONFIG_HOME:-$HOME/.config}/fzf/install --all --xdg
 
 # install tmux and create a symlink to the config
 sudo apt install tmux -y
