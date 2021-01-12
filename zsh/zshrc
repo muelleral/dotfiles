@@ -11,11 +11,11 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-
 source $ZSH/oh-my-zsh.sh
 source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/zshrc_local
+source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # configure XDG user variables if not set
 [[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME/.config"
