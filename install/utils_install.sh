@@ -2,9 +2,11 @@
 
 mkdir -p ~/.local/bin
 
-# install bat and create a symlink because the installed binary is named batcat due to a name clash
-sudo apt install bat -y
-ln -s /usr/bin/batcat ~/.local/bin/bat
+# install current version of bat
+cd /tmp
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
+sudo dpkg -i bat_*_amd64.deb
+cd -
 
 # install fd and create a symlink because the installed binary is named fdfind due to a name clash
 sudo apt install fd-find -y
