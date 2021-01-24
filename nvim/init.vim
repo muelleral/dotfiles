@@ -1,46 +1,63 @@
 let s:is_win = has('win32') || has('win64')
 let $vim_config_dir = stdpath('config') 
 let $vim_data_dir = stdpath('data')
+try
+  packadd minpac
+catch
+  fun! InstallPlug() " Bootstrap plugin manager on new systems.
+    exe '!git clone https://github.com/k-takata/minpac.git ' stdpath('config').'/pack/minpac/opt/minpac'
+    " call minpac#update()
+  endfun
+endtry
 
-call plug#begin($vim_data_dir.'/plugged')
 
-Plug 'SirVer/ultisnips'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-unimpaired'
+call minpac#init()
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-" appearance
-Plug 'rakr/vim-one'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
-if s:is_win == 0
-    Plug 'edkolev/tmuxline.vim'
-endif
+call minpac#add('rakr/vim-one')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" SCM
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim', {'on': 'GV'}
-
-"Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'majutsushi/tagbar'
-Plug 'godlygeek/tabular'
-Plug 'kassio/neoterm'
-
-Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'a-m-u/esm.nvim'
-Plug 'wsdjeg/vim-fetch'
-
-call plug#end()
+"call plug#begin($vim_data_dir.'/plugged')
+"
+"Plug 'SirVer/ultisnips'
+"Plug 'mhinz/vim-startify'
+"Plug 'tpope/vim-unimpaired'
+"
+"" appearance
+"Plug 'rakr/vim-one'
+"Plug 'nelstrom/vim-visual-star-search'
+"Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+"Plug 'Yggdroot/indentLine'
+"if s:is_win == 0
+"    Plug 'edkolev/tmuxline.vim'
+"endif
+"
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'justinmk/vim-sneak'
+"
+"" SCM
+"Plug 'mhinz/vim-signify'
+"Plug 'tpope/vim-fugitive'
+"Plug 'junegunn/gv.vim', {'on': 'GV'}
+"
+""Plug 'ludovicchabant/vim-gutentags'
+"Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-repeat'
+"Plug 'tpope/vim-surround'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'majutsushi/tagbar'
+"Plug 'godlygeek/tabular'
+"Plug 'kassio/neoterm'
+"
+"Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+"Plug 'junegunn/fzf', { 'do': './install --bin' }
+"Plug 'junegunn/fzf.vim'
+"
+"Plug 'a-m-u/esm.nvim'
+"Plug 'wsdjeg/vim-fetch'
+"
+"call plug#end()
 
 " Main settings {{{
 " ============================================================================
@@ -235,118 +252,17 @@ endif
 " ------------------------------------------------------------------
 " --  Plugin config
 " ------------------------------------------------------------------
-source $vim_config_dir/coc.vim
-" airline {{{
-" ============================================================================
-let g:airline#extensions#tabline#enabled = 1
+source $vim_config_dir/plugin_config/airline.vim
+source $vim_config_dir/plugin_config/coc.vim
+source $vim_config_dir/plugin_config/fzf.vim
+source $vim_config_dir/plugin_config/nerdtree.vim
+source $vim_config_dir/plugin_config/sneak.vim
+source $vim_config_dir/plugin_config/startify.vim
 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
- if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-
-let g:airline_mode_map = {
-         \ '__' : '-',
-         \ 'c'  : 'C',
-         \ 'i'  : 'I',
-         \ 'ic' : 'I',
-         \ 'ix' : 'I',
-         \ 'n'  : 'N',
-         \ 'ni' : 'N',
-         \ 'no' : 'N',
-         \ 'R'  : 'R',
-         \ 'Rv' : 'R',
-         \ 's'  : 'S',
-         \ 'S'  : 'S',
-         \ '' : 'S',
-         \ 't'  : 'T',
-         \ 'v'  : 'V',
-         \ 'V'  : 'V',
-         \ '' : 'V',
-         \ }
-" }}}
-" deoplete {{{
-" ============================================================================
-" let g:deoplete#enable_at_startup = 1
-" deoplete-jedi {{{
-" ============================================================================
-" Set python path where jedi is installed. Deoplete-jedi uses first available
-" Show docsting in preview window
-" let g:deoplete#sources#jedi#show_docstring = 1
-" }}}
-" }}}
-" FZF {{{
-" ============================================================================
-" Set the environment variable to use ag instead of find
-" FZF_DEFAULT_COMMAND ag --hidden --ignore .git -g ""
-set rtp+=~/tools/portable/fzf
-
-if has('nvim') || has('gui_running')
-  let $FZF_DEFAULT_OPTS .= ' --reverse --inline-info'
-endif
-
-" Hide statusline of terminal buffer
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" command! -bang -nargs=? -complete=dir Files
-"   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-nnoremap <silent> <Leader>F      :Files<CR>
-nnoremap <silent> <Leader>C      :Colors<CR>
-nnoremap <silent> <Leader>B      :Buffers<CR>
-nnoremap <silent> <Leader>L      :Lines<CR>
-nnoremap <silent> <Leader>ag     :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader>AG     :Ag <C-R><C-A><CR>
-xnoremap <silent> <Leader>ag     y:Ag <C-R>"<CR>
-nnoremap <silent> <Leader>`      :Marks<CR>
-nnoremap <silent> <Leader>H      :Helptags<CR>
-
-nmap <leader>.ag :e ~/.agignore<CR>
-"}}}
 " IndentLine {{{
 " ============================================================================
 nmap yol :set list!<CR> :IndentLinesToggle<CR>
 let g:indentLine_enabled = 0
-" }}}
-" NERDTree {{{
-" ============================================================================
-
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=60
-
-map <C-n> :NERDTreeToggle<CR>
-map <A-n> :NERDTreeFind<CR>
-
 " }}}
 " Neoterm {{{
 " ============================================================================
@@ -361,22 +277,6 @@ let g:neoterm_autojump = 1
 nnoremap <leader>gd :SignifyDiff!<cr>
 nnoremap <leader>gp :SignifyHunkDiff<cr>
 nnoremap <leader>gu :SignifyHunkUndo!<cr>
-
-" }}}
-" Startify {{{
-" ============================================================================
-" Bookmarks are set in private.vim
-let g:startify_session_dir = $vim_data_dir.'/session'
-let g:startify_relative_path = 1
-
-" commands executed befor saving
-let g:startify_session_before_save = [
-  \ 'echo "Cleaning up before saving.."',
-  \ 'silent! NERDTreeTabsClose'
-  \ ]
-
-" quit startify session
-nnoremap <Leader>qs :SClose<CR>
 
 " }}}
 " Tabular {{{
