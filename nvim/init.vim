@@ -2,424 +2,58 @@ let s:is_win = has('win32') || has('win64')
 let $vim_config_dir = stdpath('config') 
 let $vim_data_dir = stdpath('data')
 
-call plug#begin($vim_data_dir.'/plugged')
+try
+  packadd minpac
+catch
+  fun! InstallPlug() " Bootstrap plugin manager on new systems.
+    exe '!git clone https://github.com/k-takata/minpac.git ' stdpath('config').'/pack/minpac/opt/minpac'
+    " call minpac#update()
+  endfun
+endtry
 
-Plug 'SirVer/ultisnips'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-unimpaired'
 
-" appearance
-Plug 'rakr/vim-one'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
+call minpac#init()
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+" plugins without configuration
+call minpac#add('rakr/vim-one')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('nelstrom/vim-visual-star-search')
 if s:is_win == 0
-    Plug 'edkolev/tmuxline.vim'
+    call minpac#add('edkolev/tmuxline.vim')
 endif
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call minpac#add('junegunn/gv.vim')
+call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
 
-" SCM
-Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim', {'on': 'GV'}
+" plugins with configuration
+source $vim_config_dir/config/plugin/airline.vim
+source $vim_config_dir/config/plugin/coc.vim
+source $vim_config_dir/config/plugin/fugitive.vim
+source $vim_config_dir/config/plugin/fzf.vim
+source $vim_config_dir/config/plugin/indentline.vim
+source $vim_config_dir/config/plugin/nerdtree.vim
+source $vim_config_dir/config/plugin/neoterm.vim
+source $vim_config_dir/config/plugin/signify.vim
+source $vim_config_dir/config/plugin/sneak.vim
+source $vim_config_dir/config/plugin/startify.vim
+source $vim_config_dir/config/plugin/tabular.vim
+source $vim_config_dir/config/plugin/tagbar.vim
+"source $vim_config_dir/config/plugin/ultisnips.vim
 
-"Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'majutsushi/tagbar'
-Plug 'godlygeek/tabular'
-Plug 'kassio/neoterm'
+source $vim_config_dir/config/commands.vim
+source $vim_config_dir/config/keys.vim
+source $vim_config_dir/config/settings.vim
 
-Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'a-m-u/esm.nvim'
-Plug 'wsdjeg/vim-fetch'
-
-call plug#end()
-
-" Main settings {{{
-" ============================================================================
-"let $vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
-
-filetype plugin indent on
-syntax on
-
-" set hybrid line numbers in active buffer. Change to absolute numbers in not active buffer
-set number relativenumber
-set laststatus=2
-
-" colorscheme
-colorscheme one
-set background=dark " for the dark version
-
-" fold settings
-set foldenable
-set foldmethod=syntax
-set foldlevel=99
-set foldclose=all
-set modelines=1 " Tell vim to check the final line of the file for a modeline
-
-" set system clipbord to default
-set clipboard=unnamedplus
-
-" enable live susbstitution
-set inccommand=nosplit
-
-set noerrorbells              "don't make noise
-set hidden                    "allow hiding buffers with unsaved changes
-
-set cursorline                " underline the current line in the file
-set autoindent                " automatic indentation in non-C files
-set smartindent
-set cindent                   " recommended seting for automatic C-style indentation
-
-set listchars=tab:>~,nbsp:_,trail:-,space:.,eol:$ " set chars for white spaces, tabs and others
-set expandtab                 " spaces instead of tabs for better cross-editor compatibility
-
-" shiftwidth = number of spaces to use in each autoindent step
-" tabstop = number of spaces for a tab
-set ts=4 sts=4 sw=4
-
-if (has("termguicolors"))
-   set termguicolors
-endif
-
-set textwidth=119 "textwidth used for reformatting lines with gq
-set colorcolumn=120
-
-"set background color for column 120
-highlight ColorColumn ctermbg=magenta guibg=grey23
-" }}}
-" Autocmd {{{
-" ============================================================================
-if has('autocmd')
-   autocmd VimEnter * source $MYVIMRC
-   " toggles hybrid numbers when entering a buffer
-   augroup numbertoggle
-      autocmd!
-      autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-      autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-      autocmd BufReadPost fugitive://* set bufhidden=delete
-   augroup END
-
-   " autoclose preview window after autocompletion is done
-   autocmd CompleteDone * pclose!
-
-   " enable title <session_name/open_file_name> and refresh it every time a buffer is entered
-   set title
-   augroup set_title
-      autocmd!
-      autocmd VimEnter,BufEnter,FocusGained * let &titlestring=fnamemodify(v:this_session, ':t') . '/' . expand('%:t')
-   augroup END
-
-   autocmd FileType c,cpp,yaml,make,yml setlocal ts=3 sts=3 sw=3 expandtab
-   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-
-   autocmd BufNewFile,BufRead,BufEnter *.mki setfiletype make
-endif
-" }}}
-" Key Bindings {{{
-" ============================================================================
-let mapleader=","                  " set <space> to <leader>
-
-" vimrc mappings
-nnoremap <Leader>v :e $MYVIMRC<CR>
-nnoremap <Leader>V :tabe $MYVIMRC<CR>
-nnoremap <Leader>so :so $MYVIMRC<CR>
-
-" Terminal mode:
-tnoremap <Esc> <C-\><C-n>
-tnoremap <M-[> <Esc>
-tnoremap <A-h> <c-\><c-n><c-w>h
-tnoremap <A-j> <c-\><c-n><c-w>j
-tnoremap <A-k> <c-\><c-n><c-w>k
-tnoremap <A-l> <c-\><c-n><c-w>l
-" Insert mode:
-inoremap <A-h> <Esc><c-w>h
-inoremap <A-j> <Esc><c-w>j
-inoremap <A-k> <Esc><c-w>k
-inoremap <A-l> <Esc><c-w>l
-" Visual mode:
-vnoremap <A-h> <Esc><c-w>h
-vnoremap <A-j> <Esc><c-w>j
-vnoremap <A-k> <Esc><c-w>k
-vnoremap <A-l> <Esc><c-w>l
-" move the same way in wrapped lines as normaly
-vnoremap j gj
-vnoremap k gk
-
-" Normal mode:
-nnoremap <A-h> <c-w>h
-nnoremap <A-j> <c-w>j
-nnoremap <A-k> <c-w>k
-nnoremap <A-l> <c-w>l
-" move the same way in wrapped lines as normaly
-nnoremap j gj
-nnoremap k gk
-
-" new window splitting key bindings "
-nnoremap <Leader>- :sp<CR>
-nnoremap <Leader>\| :vsp<CR>
-nnoremap <Leader>t :tabnew<CR>
-
-noremap <Leader>s "ayiw :%s/<C-r>a/
-noremap <Leader>S "ayiW :%s/<C-r>a/
-noremap <Leader>bs "ayiw :bufdo %s/<C-r>a/
-noremap <Leader>bS "ayiW :bufdo %s/<C-r>a/
-vmap <Leader>s "ay :%s/<C-r>a/
-vmap <Leader>bs "ay :bufdo %s/<C-r>a/
-
-noremap <Leader>a "ayiw :Ag <C-r>a<CR>
-noremap <Leader>A "ayiW :Ag <C-r>a<CR>
-vmap <Leader>a "ay :Ag <C-r>a<CR>
-
-" buffer navigation
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprevious<CR>
-
-" write file
-map <C-s> :w<CR>
-" quit buffer
-map <C-x> :bp \| bd #<CR>
-
-" remap only if popup manu is active
-inoremap <C-j> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>C-j>"<CR>
-inoremap <C-k> <C-R>=pumvisible() ? "\<lt>C-P>" : "\<lt>C-k>"<CR>
-
-" switch between current and last buffer
-nmap <leader>, <c-^>
-
-nnoremap Y y$
-noremap <2-LeftMouse> yiw
-
-" copy current buffer path and file name into clipboard
-nmap <leader>yp :let @+ = expand('%:p:h')<CR>
-nmap <leader>yf :let @+ = expand('%:t')<CR>
-
-
-"todo: win specific. do i need it for unix?
-" windows specific shell commands
-if has('win32') || has('win64')
-   " ce is an alias for conemu
-   nnoremap <Leader>cmd :silent !start cmd /C ce.bat<CR>
-   " open expolorer for path pwd
-   nnoremap <Leader>ex :silent !start cmd /C start .<CR>
-endif
-" }}}
-" Commands {{{
-" ============================================================================
-" command! RemoveTrailingWhiteSpaces silent :%s/\s\+$//e
-
-"" Remap for destroying trailing whitespace cleanly
-command! RemoveTrailingWhiteSpaces silent :let _save_pos=getpos(".") <Bar>
-    \ :let _s=@/ <Bar>
-    \ :%s/\s\+$//e <Bar>
-    \ :let @/=_s <Bar>
-    \ :nohl <Bar>
-    \ :unlet _s<Bar>
-    \ :call setpos('.', _save_pos)<Bar>
-    \ :unlet _save_pos<CR><CR>
-" }}}
-" Local vimrc {{{
-" local vim modifications
 let s:local_vimrc = $vim_config_dir.'/local.vim'
 if filereadable(s:local_vimrc)
   execute 'source' s:local_vimrc
 endif
-" }}}
-" ------------------------------------------------------------------
-" --  Plugin config
-" ------------------------------------------------------------------
-source $vim_config_dir/coc.vim
-" airline {{{
-" ============================================================================
-let g:airline#extensions#tabline#enabled = 1
 
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
- if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.dirty='⚡'
-
-let g:airline_mode_map = {
-         \ '__' : '-',
-         \ 'c'  : 'C',
-         \ 'i'  : 'I',
-         \ 'ic' : 'I',
-         \ 'ix' : 'I',
-         \ 'n'  : 'N',
-         \ 'ni' : 'N',
-         \ 'no' : 'N',
-         \ 'R'  : 'R',
-         \ 'Rv' : 'R',
-         \ 's'  : 'S',
-         \ 'S'  : 'S',
-         \ '' : 'S',
-         \ 't'  : 'T',
-         \ 'v'  : 'V',
-         \ 'V'  : 'V',
-         \ '' : 'V',
-         \ }
-" }}}
-" deoplete {{{
-" ============================================================================
-" let g:deoplete#enable_at_startup = 1
-" deoplete-jedi {{{
-" ============================================================================
-" Set python path where jedi is installed. Deoplete-jedi uses first available
-" Show docsting in preview window
-" let g:deoplete#sources#jedi#show_docstring = 1
-" }}}
-" }}}
-" FZF {{{
-" ============================================================================
-" Set the environment variable to use ag instead of find
-" FZF_DEFAULT_COMMAND ag --hidden --ignore .git -g ""
-set rtp+=~/tools/portable/fzf
-
-if has('nvim') || has('gui_running')
-  let $FZF_DEFAULT_OPTS .= ' --reverse --inline-info'
-endif
-
-" Hide statusline of terminal buffer
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" command! -bang -nargs=? -complete=dir Files
-"   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-nnoremap <silent> <Leader>F      :Files<CR>
-nnoremap <silent> <Leader>C      :Colors<CR>
-nnoremap <silent> <Leader>B      :Buffers<CR>
-nnoremap <silent> <Leader>L      :Lines<CR>
-nnoremap <silent> <Leader>ag     :Ag <C-R><C-W><CR>
-nnoremap <silent> <Leader>AG     :Ag <C-R><C-A><CR>
-xnoremap <silent> <Leader>ag     y:Ag <C-R>"<CR>
-nnoremap <silent> <Leader>`      :Marks<CR>
-nnoremap <silent> <Leader>H      :Helptags<CR>
-
-nmap <leader>.ag :e ~/.agignore<CR>
-"}}}
-" IndentLine {{{
-" ============================================================================
-nmap yol :set list!<CR> :IndentLinesToggle<CR>
-let g:indentLine_enabled = 0
-" }}}
-" NERDTree {{{
-" ============================================================================
-
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=60
-
-map <C-n> :NERDTreeToggle<CR>
-map <A-n> :NERDTreeFind<CR>
-
-" }}}
-" Neoterm {{{
-" ============================================================================
-nmap <F7> :botright Ttoggle<CR>
-tnoremap <F7> <c-\><c-n>:botright Ttoggle<CR>
-let g:neoterm_autoinsert = 1
-let g:neoterm_autoscroll = 1
-let g:neoterm_autojump = 1
-" }}}
-" Signify {{{
-" ============================================================================
-nnoremap <leader>gd :SignifyDiff!<cr>
-nnoremap <leader>gp :SignifyHunkDiff<cr>
-nnoremap <leader>gu :SignifyHunkUndo!<cr>
-
-" }}}
-" Startify {{{
-" ============================================================================
-" Bookmarks are set in private.vim
-let g:startify_session_dir = $vim_data_dir.'/session'
-let g:startify_relative_path = 1
-
-" commands executed befor saving
-let g:startify_session_before_save = [
-  \ 'echo "Cleaning up before saving.."',
-  \ 'silent! NERDTreeTabsClose'
-  \ ]
-
-" quit startify session
-nnoremap <Leader>qs :SClose<CR>
-
-" }}}
-" Tabular {{{
-" ============================================================================
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>ac :Tabularize /\/\*\*<<CR>
-"}}}
-" Tagbar {{{
-" ============================================================================
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-" }}}
-" UltiSnips {{{
-" ============================================================================
-
-" As example, if the current 'filetype' is cpp the
-" :UltiSnipsEdit command looks for a file to edit in
-" this order:
-" 1. An existing
-   " g:UltiSnipsSnippetsDir."/cpp.snippets" file
-" 2. Find a matching cpp snippets file in
-   " g:UltiSnipsSnippetDirectories
-" 3. Create a new
-   " g:UltiSnipsSnippetsDir."/cpp.snippets" file
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" Search dir own_snippets and the other default ones
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "own_snippets"]
-
-" todo ultisnipspath is not here. use stdpath()
-" Path to private snippets directory
-"let g:UltiSnipsSnippetsDir=$vim_dir.'/own_snippets'
-" use :checkhealth to determine if there are problems with neovim
-
-" }}}
 
 " ------------------------------------------------------------------
 " --  Additional info's
