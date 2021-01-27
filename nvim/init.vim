@@ -30,7 +30,6 @@ source $vim_config_dir/config/plugin/nerdtree.vim
 source $vim_config_dir/config/plugin/neoterm.vim
 source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim
-source $vim_config_dir/config/plugin/startify.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
 "source $vim_config_dir/config/plugin/ultisnips.vim
@@ -44,6 +43,12 @@ endif
 source $vim_config_dir/config/commands.vim
 source $vim_config_dir/config/keys.vim
 source $vim_config_dir/config/settings.vim
+
+if exists('g:started_by_firenvim')
+    source $vim_config_dir/config/plugin/firenvim.vim
+else
+    source $vim_config_dir/config/plugin/startify.vim
+endif
 
 let s:local_vimrc = $vim_config_dir.'/local.vim'
 if filereadable(s:local_vimrc)
