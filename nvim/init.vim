@@ -25,6 +25,7 @@ call minpac#add('tpope/vim-surround')
 source $vim_config_dir/config/plugin/airline.vim
 source $vim_config_dir/config/plugin/fugitive.vim
 source $vim_config_dir/config/plugin/fzf.vim
+" source $vim_config_dir/config/plugin/gutentags.vim
 source $vim_config_dir/config/plugin/indentline.vim
 source $vim_config_dir/config/plugin/nerdtree.vim
 source $vim_config_dir/config/plugin/neoterm.vim
