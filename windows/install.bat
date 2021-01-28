@@ -20,3 +20,10 @@ set "linkDest=%installBatchPath%alacritty\alacritty.yml"
 mklink "%link%" "%linkDest%"
 ::echo alacritty: "%link%" "%linkDest%"
 
+::Create symlink for neovim
+set "nvim_config_xdg_path=%APPDATA%\nvim"
+set "nvim_config_path=%installBatchPath%..\nvim"
+mkdir %nvim_config_xdg_path%
+mklink "%nvim_config_xdg_path%\init.vim" "%nvim_config_path%\init.vim"
+mklink "%nvim_config_xdg_path%\ginit.vim" "%nvim_config_path%\ginit.vim"
+mklink /D "%nvim_config_xdg_path%\config" "%nvim_config_path%\config"
