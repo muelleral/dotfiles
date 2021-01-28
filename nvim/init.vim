@@ -2,6 +2,11 @@ let s:is_win = has('win32') || has('win64')
 let $vim_config_dir = stdpath('config') 
 let $vim_data_dir = stdpath('data')
 
+if empty(glob('$vim_config_dir/pack/minpac/opt/minpac')) 	
+  execute '!git clone https://github.com/k-takata/minpac.git '$vim_config_dir.'/pack/minpac/opt/minpac'
+  autocmd VimEnter * call minpac#update() | source $MYVIMRC
+endif
+
 packadd minpac
 call minpac#init()
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
