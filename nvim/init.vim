@@ -33,12 +33,18 @@ source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
-"source $vim_config_dir/config/plugin/ultisnips.vim
 
+" auto completion
 if exists('g:vscode')
     source $vim_config_dir/config/plugin/vscode.vim
 else
-    source $vim_config_dir/config/plugin/coc.vim
+    if s:is_win == 0
+        source $vim_config_dir/config/plugin/coc.vim
+    else
+        call minpac#add('machakann/vim-highlightedyank')
+        source $vim_config_dir/config/plugin/deoplete.vim
+        source $vim_config_dir/config/plugin/ultisnips.vim
+    endif
 endif
 
 source $vim_config_dir/config/commands.vim
