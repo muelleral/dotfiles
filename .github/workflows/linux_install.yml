@@ -37,4 +37,7 @@ jobs:
           
       # try to install
       - name: Install
-        run: ./$GITHUB_WORKSPACE/install.sh
+        run: |
+          ls
+          pwd
+          ./install.sh
