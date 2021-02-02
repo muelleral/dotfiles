@@ -1,3 +1,5 @@
+call minpac#add('neoclide/coc.nvim', { 'branch': 'release' })
+
 " Main settings {{{
 " Install coc extensions
 let g:coc_global_extensions = [
