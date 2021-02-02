@@ -31,9 +31,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./dockerfile
           push: true
-          tags: a-m-u/dotfiles:latest
+          tags: alexmu/dotfiles:latest
         
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
