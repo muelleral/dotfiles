@@ -4,13 +4,17 @@
 cd ~/.local/bin 
 curl -LO https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
 chmod u+x nvim.appimage
-ln -s nvim.appimage nvim
+
+# extract image to use it the same way in systems with and without fuse installed
+./nvim.appimage --appimage-extract
+ln -s squashfs-root/usr/bin/nvim nvim
+#ln -s nvim.appimage nvim
 cd -
 
 pip3 install neovim
 
 # create a symLink to the nvim configuration
-nvim --headless +"call mkdir(stdpath('config'), 'p')" +"exe 'edit '.stdpath('config').'/init.vim'" +qa
+nvim --headless +"call mkdir(stdpath('config'), 'p')" +qa
 ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/nvim/config ~/.config/nvim/config
 
@@ -32,5 +36,4 @@ nvim --headless +"call minpac#update()" +qa
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 
 sudo apt install nodejs -y
-sudo apt install npm -y
 sudo npm install -g neovim
