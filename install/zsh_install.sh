@@ -8,3 +8,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/changyuheng/zsh-interactive-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-interactive-cd
+
+
+
+ZSHRC=~/.zshrc
+if [ -f $ZSHRC ]; then 
+    mv $ZSHRC $ZSHRC.old
+fi
+
+if [ ! -f $ZSHRC ]; then 
+    echo 'export ZSH="$HOME/.oh-my-zsh"' > $ZSHRC
+    echo 'export ZSH_DOT_DIR="$HOME/dotfiles/zsh"' >> $ZSHRC
+    echo 'source $HOME/dotfiles/zsh/zshrc' >> $ZSHRC
+fi
+
+
+
+
