@@ -1,7 +1,7 @@
 # If ZSH_DOT_DIR is not defined, use the current script's directory.
 [[ -z "$ZSH_DOT_DIR" ]] && export ZSH_DOT_DIR="${${(%):-%x}:a:h}"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
     colored-man-pages
@@ -15,6 +15,7 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/zshrc_local
+source $ZSH_DOT_DIR/p10k.zsh
 source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # configure XDG user variables if not set
@@ -34,7 +35,3 @@ bindkey '^l' autosuggest-accept
 # export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
-# this line must be at the end of the file to have an effect
-prompt_context(){
-    prompt_segment default default "%(!.%{%F{yellow}%}.)$USER"
-}  #hide user@hostname prompt
