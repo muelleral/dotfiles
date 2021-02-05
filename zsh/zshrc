@@ -35,3 +35,6 @@ bindkey '^l' autosuggest-accept
 # export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
+function fcat {
+    cat $1 | fzf | (read; zsh -c $REPLY)
+}
