@@ -8,15 +8,22 @@ chmod u+x nvim.appimage
 # extract image to use it the same way in systems with and without fuse installed
 ./nvim.appimage --appimage-extract
 ln -s squashfs-root/usr/bin/nvim nvim
-#ln -s nvim.appimage nvim
 cd -
 
 pip3 install neovim
 
-# create a symLink to the nvim configuration
-nvim --headless +"call mkdir(stdpath('config'), 'p')" +qa
+# Configure CoC
+# Coc requires current verion of nodejs. Availabe ubuntu package is to old. Therefore get new nodjs sources before
+# installinng. 
+curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt install nodejs -y
+sudo npm install -g neovim
+
+# get plugin manager, setup nvim config and install plugins
+sh -c 'git clone https://github.com/k-takata/minpac.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim/pack/minpac/opt/minpac'
 ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/nvim/config ~/.config/nvim/config
+nvim --headless +"call minpac#update()" +qa
 
 # create default local nvim config if none exists
 LOCAL_VIMRC=~/.config/nvim/local.vim
@@ -25,15 +32,3 @@ if [ ! -f $LOCAL_VIMRC ]; then
     echo "let g:python3_host_prog = '$PYTHON_PATH'" > $LOCAL_VIMRC
 fi
 
-# get plugin manager and install plugins
-sh -c 'git clone https://github.com/k-takata/minpac.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim/pack/minpac/opt/minpac'
-nvim --headless +"call minpac#update()" +qa
-
-
-# Configure CoC
-# Coc requires current verion of nodejs. Availabe ubuntu package is to old. Therefore get new nodjs sources before
-# installinng. 
-curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-
-sudo apt install nodejs -y
-sudo npm install -g neovim
