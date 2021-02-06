@@ -5,7 +5,9 @@ sudo apt update && apt upgrade -y
 ZSHRC=~/.zshrc
 if [ -f $ZSHRC ]; then 
     mv $ZSHRC $ZSHRC.old
+fi
 
+if [ ! -f $ZSHRC ]; then 
     # the '-' allows the heredoc to be indented 
     # the ' surrounding the delimeter leads to not expanding the $VARs in the multiline comment
 	cat <<- 'EOF' > $ZSHRC
