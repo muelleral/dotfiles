@@ -18,10 +18,6 @@ source $ZSH_DOT_DIR/zshrc_local
 source $ZSH_DOT_DIR/p10k.zsh
 source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
-# configure XDG user variables if not set
-[[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME/.config"
-[[ -z "$XDG_DATA_HOME" ]] && export XDG_DATA_HOME="$HOME/.local/share"
-
 # set the default editor. Is used for aliases 
 export EDITOR="$(which nvim)"
 
