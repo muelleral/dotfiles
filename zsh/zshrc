@@ -1,3 +1,6 @@
+# set the default editor. Is used for aliases 
+export EDITOR="$(which nvim)"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -13,9 +16,6 @@ source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/p10k.zsh
 source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-
-# set the default editor. Is used for aliases 
-export EDITOR="$(which nvim)"
 
 # change the foreground color to black for the ls command
 LS_COLORS=$LS_COLORS:'ow=30;42'; export LS_COLORS
