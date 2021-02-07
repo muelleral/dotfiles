@@ -13,6 +13,7 @@ if [ ! -f $ZSHRC ]; then
 	cat <<- 'EOF' > $ZSHRC
 	[[ -z "$XDG_CONFIG_HOME" ]] && export XDG_CONFIG_HOME="$HOME/.config"
 	[[ -z "$XDG_DATA_HOME" ]] && export XDG_DATA_HOME="$HOME/.local/share"
+	export PATH=$HOME/.local/bin:/usr/local/bin:bin$PATH
 	EOF
 fi
 
