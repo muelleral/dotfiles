@@ -7,6 +7,32 @@ sudo apt install zsh -y
 chsh -s $(which zsh)
 git clone https://github.com/ohmyzsh/ohmyzsh.git $ZSH
 
+plugins=(
+    "/zsh-users/zsh-syntax-highlighting"
+    "/agkozak/zsh-z"
+    "/zsh-users/zsh-autosuggestions"
+    "/changyuheng/zsh-interactive-cd"
+)
+
+themes=("/romkatv/powerlevel10k")
+
+installPlugins(){
+    for i in "${plugins[@]}"; do
+        # IFS='/' read -ra ADDR <<< $i
+        #     for i in "${ADDR[@]}"; do
+        #     # process "$i"
+        # done
+       git clone https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
+    done
+}
+
+updatePlugins(){
+    for i in "${plugins[@]}"
+    do
+       git pull https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins
+    done
+}
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
