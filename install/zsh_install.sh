@@ -12,6 +12,7 @@ plugins=(
     "/agkozak/zsh-z"
     "/zsh-users/zsh-autosuggestions"
     "/changyuheng/zsh-interactive-cd"
+    "/wfxr/forgit"
 )
 
 themes=("/romkatv/powerlevel10k")

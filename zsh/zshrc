@@ -12,10 +12,11 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/plugins/forgit/forgit.plugin.zsh
+source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 source $ZSH_DOT_DIR/z.sh
 source $ZSH_DOT_DIR/zsh_aliases
 source $ZSH_DOT_DIR/p10k.zsh
-source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # change the foreground color to black for the ls command
 LS_COLORS=$LS_COLORS:'ow=30;42'; export LS_COLORS
