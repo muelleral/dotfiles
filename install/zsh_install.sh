@@ -27,7 +27,9 @@ installZsh() {
 installPlugins(){
     for i in "${plugins[@]}"; do
         dirName=$(echo "$i" | awk -F "/" '{print $3}')
-        git clone https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$dirName
+		if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$dirName ]; then 
+            git clone https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/$dirName
+        fi
     done
 }
 
@@ -44,7 +46,9 @@ updatePlugins(){
 installThemes(){
     for i in "${themes[@]}"; do
         dirName=$(echo "$i" | awk -F "/" '{print $3}')
-        git clone --depth=1 https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/$dirName
+		if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/$dirName ]; then 
+            git clone --depth=1 https://github.com$i ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/$dirName
+        fi
     done
 }
 
