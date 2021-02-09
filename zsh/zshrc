@@ -35,5 +35,5 @@ export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
 source ~/.local/bin/virtualenvwrapper.sh
 
 function fcat {
-    cat $1 | fzf -m | (while read line; do zsh -c "$line"; done)
+    cat $1 | fzf -m | while read line; do eval $line; done
 }
