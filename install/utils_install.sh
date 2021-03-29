@@ -9,6 +9,12 @@ curl -LO https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd
 sudo dpkg -i bat_*_amd64.deb
 cd -
 
+# install current version of delta
+cd /tmp
+curl -LO https://github.com/dandavison/delta/releases/download/0.6.0/git-delta_0.6.0_amd64.deb
+sudo dpkg -i git-delta_*_amd64.deb
+cd -
+
 # install fd and create a symlink because the installed binary is named fdfind due to a name clash
 sudo apt install fd-find -y
 ln -s /usr/bin/fdfind ~/.local/bin/fd
