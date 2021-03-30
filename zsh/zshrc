@@ -59,6 +59,13 @@ function fcat {
     cat $1 | fzf-tmux -m | while read line; do eval $line; done
 }
 
+# list all available aliases and execute the selcted one
+function fzf_aliases {
+    IFS=$'\n' files=($(alias | fzf --height 50% | awk -F= '{print $2}' | sed "s/'//g"))
+    eval $files
+}
+alias fa='fzf_aliases'
+
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
