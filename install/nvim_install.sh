@@ -12,12 +12,6 @@ ln -s squashfs-root/usr/bin/nvim nvim
 cd -
 
 pip3 install neovim
-
-# Configure CoC
-# Coc requires current verion of nodejs. Availabe ubuntu package is to old. Therefore get new nodjs sources before
-# installinng. 
-curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install nodejs -y
 sudo npm install -g neovim
 
 # get plugin manager, setup nvim config and install plugins
