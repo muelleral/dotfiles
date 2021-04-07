@@ -21,6 +21,7 @@ if s:is_win == 0
 endif
 
 call minpac#add('junegunn/gv.vim')
+call minpac#add('junegunn/goyo.vim')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-rsi')
