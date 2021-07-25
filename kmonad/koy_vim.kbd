@@ -31,9 +31,9 @@
 (deflayer level1
                                       f6
   grv        1    2    3    4    5    6    7    8    9    0    -    =
-  tab        k    .    o    ,    y    v    g    c    l    f    z    ´ 
-  @lv3       @hs  @ac @e4  @i3   u    d    @t3  @r4 @nc  @ss  @lv3 @sz
-  @lv2 @lv4  x    q    ä    ü    ö    b    p    @wa  m    j    rsft
+  tab        k    .   @om  @,a   y    v    @ga  @cm  l    @sz  z    ´ 
+  @lv3       @hs  @ac @e4  @i3   u    d    @t3  @r4  @nc  @ss  f    @lv3 
+  @lv2 @lv4  x    q    ä    ü    ö    b    p    w    m    j    rsft
   lctl       lmet lalt          spc             ralt rmet _    _
 )
 
@@ -41,8 +41,8 @@
                                        _
 ;;grv         °    §    ℓ    »    «    $    €    „    “    ”    —    ¸
   grv         !    "    §    $    %    &    /    \(   \)   =    ?    ´
-  S-tab       K    .    O    -    Y    V    G    C    L    F    Z    ´
-  @lv5        H    A    E    I    U    D    T    R    N    S    ß    @lv5
+  S-tab       K    .    O    -    Y    V    G    C    L    @sz  Z    ´
+  @lv5        H    A    E    I    U    D    T    R    N    S    F    @lv5
   XX   S-@lv4 X    Q    Ä    @Ü   Ö    B    P    W    M    J    XX
   lctl        lmet lalt          spc             ralt rmet _    _
 )
@@ -68,9 +68,9 @@
 (deflayer level4
                                      f6
   _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
-  _         pgup bspc up   del  pgdn tab pgdn pgup home end   esc  "
-  @lv6      home lft  down rght end  lft down  up  rght ret   .    @lv6
-  lsft XX   esc  tab  ins  ret  _    bspc del @delw   3    ;    rsft
+  _         pgup bspc up   del  pgdn home pgdn pgup end  tab  esc  "
+  @lv6      home lft  down rght end  lft  down up   rght ret  esc  @lv6
+  lsft XX   esc  tab  ins  ret  _    bspc del  _    3    ;    rsft
   _         _    _              0              XX   _    _    _
 )
 #| --------------------------------------------------------------------------
@@ -149,16 +149,16 @@
   e4 (tap-hold-next-release 500 e @lv4)
   i3 (tap-hold-next-release 500 i @lv3)
   ;;j2 (tap-hold-next-release 500 j @lv2)
-  ;;xa (tap-hold-next-release 500 x lalt)
-  ;;ä4 (tap-hold-next-release 500 ä @lv4)
+  ,a (tap-hold-next-release 500 , lalt)
+  om (tap-hold-next-release 500 o lmet)
   ac (tap-hold-next-release 500 a lctl)
   ;;
   ;;lsp (tap-hold-next-release 500 l @spl)	
   t3  (tap-hold-next-release 500 t @lv3)
-  wa  (tap-hold-next-release 500 w ralt)
+  ga  (tap-hold-next-release 500 g lalt)
   r4  (tap-hold-next-release 500 r @lv4)
   nc  (tap-hold-next-release 500 n rctl)
-  ;;nw  (tap-hold-next-release 500 n rmet)
+  cm  (tap-hold-next-release 500 c rmet)
   ss  (tap-hold-next-release 500 s rsft)
 
   ;; ralt = compose key when tapped, rctl when held down
