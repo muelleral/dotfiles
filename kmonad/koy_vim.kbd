@@ -31,8 +31,8 @@
 (deflayer level1
                                       f6
   grv        1    2    3    4    5    6    7    8    9    0    -    =
-  tab        k    .   @om  @,a   y    v    @ga  @cm  l    @sz  z    ´ 
-  @lv3       @hs  @ac @e4  @i3   u    d    @t3  @r4  @nc  @ss  f    @lv3 
+  tab        k    .   @om   @,a  y    v    @ga  @cm  l    @sz  z    ´ 
+  @lv3       @hs  @ac @evim @i3 @u4  @d4   @t3 @rvim @nc  @ss  f    @lv3 
   @lv2 @lv4  x    q    ä    ü    ö    b    p    w    m    j    rsft
   lctl       lmet lalt          spc             ralt rmet _    _
 )
@@ -56,23 +56,33 @@
   _          _    _              _              @lv6 _    _    _
 )
 
-;;(deflayer level4
-;;                                     f6
-;;  _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
-;;  _         pgup bspc up   del  pgdn _    7    8    9    +    -    "
-;;  @lv6      home lft  down rght end  _    4    5    6    ,    .    @lv6
-;;  lsft XX   esc  tab  ins  ret  _    :    1    2    3    ;    rsft
-;;  _         _    _              0              XX   _    _    _
-;;)
-
 (deflayer level4
                                      f6
   _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
-  _         pgup bspc up   del  pgdn home pgdn pgup end  tab  esc  "
-  @lv6      home lft  down rght end  lft  down up   rght ret  esc  @lv6
-  lsft XX   esc  tab  ins  ret  _    bspc del  _    3    ;    rsft
+  _         pgup bspc up   del  pgdn _    7    8    9    +    -    "
+  @lv6      home lft  down rght end  _    4    5    6    ,    .    @lv6
+  lsft XX   esc  tab  ins  ret  _    :    1    2    3    ;    rsft
   _         _    _              0              XX   _    _    _
 )
+
+;;(deflayer level4
+;;                                     f6
+;;  _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
+;;  _         pgup bspc up   del  pgdn home pgdn pgup end  tab  esc  "
+;;  @lv6      home lft  down rght end  lft  down up   rght ret  esc  @lv6
+;;  lsft XX   esc  tab  ins  ret  _    bspc del  _    3    ;    rsft
+;;  _         _    _              0              XX   _    _    _
+;;)
+
+(deflayer vim
+                                     _
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _         _    _    _    _    _    home pgdn pgup end  _    _    _
+  _         _    tab  esc  bspc del  lft  down up   rght ret  _    _
+  _   XX    _    _    _    _    _    bspc del  _    _    _    _
+  _         _    _              _              _    _    _    _
+)
+
 #| --------------------------------------------------------------------------
 (deflayer level5
                                      _
@@ -141,22 +151,25 @@
   lv4 (layer-toggle level4)
   lv5 (layer-toggle level5)
   lv6 (layer-toggle level6)
+  vim (layer-toggle vim)
 )
 
 
 (defalias
   hs (tap-hold-next-release 500 h lsft)
-  e4 (tap-hold-next-release 500 e @lv4)
+  evim (tap-hold-next-release 500 e @vim)
   i3 (tap-hold-next-release 500 i @lv3)
   ;;j2 (tap-hold-next-release 500 j @lv2)
   ,a (tap-hold-next-release 500 , lalt)
   om (tap-hold-next-release 500 o lmet)
   ac (tap-hold-next-release 500 a lctl)
+  u4 (tap-hold-next-release 500 u @lv4)
   ;;
-  ;;lsp (tap-hold-next-release 500 l @spl)	
+
+  d4  (tap-hold-next-release 500 d @lv4)
   t3  (tap-hold-next-release 500 t @lv3)
   ga  (tap-hold-next-release 500 g lalt)
-  r4  (tap-hold-next-release 500 r @lv4)
+  rvim (tap-hold-next-release 500 r @vim)
   nc  (tap-hold-next-release 500 n rctl)
   cm  (tap-hold-next-release 500 c rmet)
   ss  (tap-hold-next-release 500 s rsft)
