@@ -34,7 +34,7 @@
   tab        k    .   @om   @,a  y    v    @ga  @cm  l    @sz  z    ´ 
   @lv3       @hs  @ac @evim @i3 @u4  @d4   @t3 @rvim @nc  @ss  f    @lv3 
   @lv2 @lv4  q    x    ä    ü    ö    b    p    w    m    j    rsft
-  lctl       lmet lalt          spc             ralt rmet _    _
+  @cmap      lmet lalt          spc             ralt rmet _    _
 )
 
 (deflayer level2
@@ -81,6 +81,15 @@
   _         _    tab  esc  bspc del  lft  down up   rght ret  _    _
   _   XX    _    _    _    _    _    bspc del  _    _    _    _
   _         _    _              _              _    _    _    _
+)
+
+(deflayer ctrl_mappings
+                                        _
+  _         _     _     _    _     _    _    _    _    _    _    _    _
+  _         _     _     _    _     _    _    _    _    _    _    _    _
+  _         @all  @save _    @find _    _    _    _    _    _    _    _
+  _   XX    @undo @cut  @cpy @pst  _    _    _    _    _    _    _
+  _         _     _                _              _    _    _    _
 )
 
 #| --------------------------------------------------------------------------
@@ -146,14 +155,24 @@
   q3 (layer-toggle qwertz3)
 
   ;; Bind lvX to a button that switches to a layer
-  lv2 (layer-toggle level2)
-  lv3 (layer-toggle level3)
-  lv4 (layer-toggle level4)
-  lv5 (layer-toggle level5)
-  lv6 (layer-toggle level6)
-  vim (layer-toggle vim)
+  lv2  (layer-toggle level2)
+  lv3  (layer-toggle level3)
+  lv4  (layer-toggle level4)
+  lv5  (layer-toggle level5)
+  lv6  (layer-toggle level6)
+  vim  (layer-toggle vim)
+  cmap (layer-toggle ctrl_mappings)
 )
 
+(defalias
+  cut C-x
+  cpy C-c
+  pst C-v
+  find C-f
+  save C-s
+  all C-a
+  undo C-z
+)
 
 (defalias
   hs (tap-hold-next-release 500 h lsft)
