@@ -33,7 +33,7 @@
   grv        1    2    3    4    5    6    7    8    9    0    -    =
   tab        k    .   @om   @,a  y    v    @ga  @cm  l    @sz  z    ´ 
   @lv3       @hs  @ac @evim @i3 @u4  @d4   @t3 @rvim @nc  @ss  f    @lv3 
-  @lv2 @lv4  x    q    ä    ü    ö    b    p    w    m    j    rsft
+  @lv2 @lv4  q    x    ä    ü    ö    b    p    w    m    j    rsft
   lctl       lmet lalt          spc             ralt rmet _    _
 )
 
@@ -43,7 +43,7 @@
   grv         !    "    §    $    %    &    /    \(   \)   =    ?    ´
   S-tab       K    .    O    -    Y    V    G    C    L    @sz  Z    ´
   @lv5        H    A    E    I    U    D    T    R    N    S    F    @lv5
-  XX   S-@lv4 X    Q    Ä    @Ü   Ö    B    P    W    M    J    XX
+  XX   S-@lv4 Q    X    Ä    @Ü   Ö    B    P    W    M    J    XX
   lctl        lmet lalt          spc             ralt rmet _    _
 )
 
