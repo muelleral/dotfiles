@@ -178,20 +178,22 @@
 (defalias
   spcnav (tap-hold-next-release 500 spc @nav)
 
-  hs  (tap-hold-next-release 500 h lsft)
-  i3  (tap-hold-next-release 500 i @lv3)
-  ,a  (tap-hold-next-release 500 , lalt)
-  om  (tap-hold-next-release 500 o lmet)
-  ac  (tap-hold-next-release 500 a lctl)
+  hm  (tap-hold-next-release 500 h lmet)
+  ia  (tap-hold-next-release 500 i lalt)
+  es  (tap-hold-next-release 500 e rsft)
+  ic  (tap-hold-next-release 500 i lctl)
+  u3  (tap-hold-next-release 500 u @lv3)
+  
   u4  (tap-hold-next-release 500 u @lv4)
   yfn (tap-hold-next-release 500 y @fn)
-
   d4  (tap-hold-next-release 500 d @lv4)
-  t3  (tap-hold-next-release 500 t @lv3)
-  ga  (tap-hold-next-release 500 g lalt)
-  nc  (tap-hold-next-release 500 n rctl)
-  cm  (tap-hold-next-release 500 c rmet)
-  ss  (tap-hold-next-release 500 s rsft)
+  
+  d3  (tap-hold-next-release 500 d @lv3)
+  tc  (tap-hold-next-release 500 t rctl)
+  rs  (tap-hold-next-release 500 r rsft)
+  na  (tap-hold-next-release 500 n lalt)
+  sm  (tap-hold-next-release 500 s rmet)
+
 )
 
 (defalias
