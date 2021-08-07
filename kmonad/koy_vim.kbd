@@ -30,11 +30,11 @@
 
 (deflayer level1
                                       f6
-  grv        1    2    3    4    5    6    7    8    9    0    -    =
-  tab        k    .    o   ,    @yfn  v    g    c    l    @sz  z    ´ 
-  @lv3       @hm  @aa  @es  @ic @u3   @d3  @tc  @rs  @na  @sm  f    @lv3 
-  @lv2 @lv4  q    x    ä    ü    ö    b    p    w    m    j    rsft
-  @cmap      lmet lalt        @spcnav           alt rmet _    _
+  grv        1    2    3    4     5    6    7     8    9    0    -    =
+  tab        k    .    o    @,num y    v    @gnum c    l    @sz  z    ´ 
+  @lv3       @hm  @aa  @es  @ic   @u3  @d3  @tc   @rs  @na  @sm  f    @lv3 
+  @lv2 @lv4  q    x    ä    ü     ö    b    p     w    m    j    rsft
+  @cmap      lmet lalt        @spcnav             lalt rmet _    _
 )
 
 (deflayer level2
@@ -56,22 +56,14 @@
   _          _    _              _              @lv6 _    _    _
 )
 
-(deflayer level4
-                                     f6
-  _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
-  _         pgup bspc up   del  pgdn _    7    8    9    +    -    "
-  @lv6      home lft  down rght end  _    4    5    6    ,    .    @lv6
-  lsft XX   esc  tab  ins  ret  _    :    1    2    3    ;    rsft
-  _         _    _              0              XX   _    _    _
-)
 
-(deflayer function_keys
+(deflayer numbers
                                      _
   _         _    _    _    _    _    _    _    _    _    _    _    _
-  _         _    _    _    _    _    _    f7   f8   f9   f12  _    _
-  _         _    _    _    _    _    _    f4   f5   f6   f11  _    _
-  _   XX    _    _    _    _    _    _    f1   f2   f3   f10  _
-  _         _    _              _              _    _    _    _
+  _         f9   f10  f11  f12  _    _    7    8    9    _    _    _
+  _         f5   f6   f7   f8   _    _    4    5    6    _    _    _
+  _   XX    f1   f2   f3   f4   _    _    1    2    3    _    _
+  _         _    _              0              _    _    _    _
 )
 
 (deflayer nav
@@ -93,6 +85,16 @@
 )
 
 #| --------------------------------------------------------------------------
+(deflayer level4
+                                     f6
+  _         ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
+  _         pgup bspc up   del  pgdn _    7    8    9    +    -    "
+  @lv6      home lft  down rght end  _    4    5    6    ,    .    @lv6
+  lsft XX   esc  tab  ins  ret  _    :    1    2    3    ;    rsft
+  _         _    _              0              XX   _    _    _
+)
+
+
 (deflayer level5
                                      _
   _         ₁    ₂    ₃    ♀    ♂    ⚥    ϰ    ⟨    ⟩    ₀    ‑    _
@@ -111,6 +113,15 @@
   _        _     _              _              _    _    _    _
 )
   -------------------------------------------------------------------------- |#
+(deflayer level4
+                                     _
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _   XX    _    _    _    _    _    _    _    _    _    _    _
+  _         _    _              _              _    _    _    _
+)  
+  
 (deflayer level5
                                      _
   _         _    _    _    _    _    _    _    _    _    _    _    _
@@ -160,7 +171,8 @@
   lv4  (layer-toggle level4)
   lv5  (layer-toggle level5)
   lv6  (layer-toggle level6)
-  fn   (layer-toggle function_keys)
+  
+  num  (layer-toggle numbers)
   nav  (layer-toggle nav)
   cmap (layer-toggle ctrl_mappings)
 )
@@ -184,9 +196,8 @@
   ic  (tap-hold-next-release 500 i lctl)
   u3  (tap-hold-next-release 500 u @lv3)
   
-  u4  (tap-hold-next-release 500 u @lv4)
-  yfn (tap-hold-next-release 500 y @fn)
-  d4  (tap-hold-next-release 500 d @lv4)
+  ,num (tap-hold-next-release 500 , @num)
+  gnum (tap-hold-next-release 500 g @num)
   
   d3  (tap-hold-next-release 500 d @lv3)
   tc  (tap-hold-next-release 500 t rctl)
