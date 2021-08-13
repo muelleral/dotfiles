@@ -30,11 +30,11 @@
 
 (deflayer level1
                                       f6
-  grv        1    2    3    4     5    6    7     8    9    0    -    =
-  tab        k    .    o    @,num y    v    @gnum c    l    @sz  z    ´ 
-  @lv3       @hm  @aa  @es  @ic   @u3  @d3  @tc   @rs  @na  @sm  f    @lv3 
-  @lv2 @lv4  q    x    ä    ü     ö    b    p     w    m    j    rsft
-  @cmap      lmet lalt        @spcnav             lalt rmet _    _
+  grv        1    2    3    4     5     6     7     8    9    0    -    =
+  tab        k    .    @o3  @,num y     v     @gnum @c3  l    @sz  z    ´ 
+  @lv3       @hm  @aa  @es  @ic   @unav @dnav @tc   @rs  @na  @sm  f    @lv3 
+  @lv2 @lv4  q    x    ä    ü     ö     b     p     w    m    j    rsft
+  @cmap      lmet lalt        @spcnav              lalt rmet _    _
 )
 
 (deflayer level2
@@ -53,7 +53,7 @@
   _          @    \_   [    ]    ^    !    <    >    =    &    €    /
   XX         \    /    {    }    *    ?    \(   \)   -    :    @    XX
   @lv5 @lv6  #    $    |    ~    `    +    %    "    '    ;    @lv5
-  _          _    _              _              @lv6 _    _    _
+  _          _    _              @pnav          @lv6 _    _    _
 )
 
 
@@ -72,7 +72,7 @@
   _         _    _    _    _    _    tab  bspc esc  _    _    _    _
   _         lmet lalt rsft lctl _    lft  down up   rght ret  _    _
   _   XX    _    _    _    _    _    home pgdn pgup end  _    _
-  _         _    _              _              _    _    _    _
+  _         _    _              @neo           _    _    _    _
 )
 
 (deflayer ctrl_mappings
@@ -141,13 +141,15 @@
 )
 
 (deflayer qwertz
-                                    _
-  S-6      1    2    3    4    5    6    7    8    9    0    ß    apos
-  tab      q    w    e    r    t    z    u    i    o    p    ü    +
-  @q3      a    s    d    f    g    h    j    k    l    ö    ä    #
-  lsft <   y    x    c    v    b    n    m    ,    .    -    rsft
-  lctl     lmet lalt          spc             ralt rmet cmp  rctl
+                                           @neo
+;;+--------+------+-----------------------------------------------------------+-------+
+    S-6      1     2     3     4       5       6       7       8     9     0     ß     apos
+    tab      q     w     @q_e3 @q_rnum t       z       @q_unum @q_i3 o     p     ü     +
+    lctl     @q_am @q_sa @q_ds @q_fc   @q_gnav @q_hnav @q_jc   @q_ks @q_la @q_öm ä     #
+    lsft <   y     x     c     v       b       n       m       ,     .     -     rsft
+    @cmap    lmet  lalt                @spcnav                   ralt rmet cmp  rctl
 )
+
 
 (deflayer qwertz3
                                     @neo
@@ -172,8 +174,9 @@
   lv5  (layer-toggle level5)
   lv6  (layer-toggle level6)
   
-  num  (layer-toggle numbers)
   nav  (layer-toggle nav)
+  pnav (layer-switch nav)
+  num  (layer-toggle numbers)
   cmap (layer-toggle ctrl_mappings)
 )
 
@@ -190,21 +193,45 @@
 (defalias
   spcnav (tap-hold-next-release 500 spc @nav)
 
-  hm  (tap-hold-next-release 500 h lmet)
-  aa  (tap-hold-next-release 500 a lalt)
-  es  (tap-hold-next-release 500 e rsft)
-  ic  (tap-hold-next-release 500 i lctl)
-  u3  (tap-hold-next-release 500 u @lv3)
+  ;; KOY how row
+  ;; ====================================
+  hm   (tap-hold-next-release 500 h lmet)
+  aa   (tap-hold-next-release 500 a lalt)
+  es   (tap-hold-next-release 500 e rsft)
+  ic   (tap-hold-next-release 500 i lctl)
+  unav (tap-hold-next-release 500 u @nav)
   
+  o3   (tap-hold-next-release 500 o @lv3)
   ,num (tap-hold-next-release 500 , @num)
-  gnum (tap-hold-next-release 500 g @num)
   
-  d3  (tap-hold-next-release 500 d @lv3)
-  tc  (tap-hold-next-release 500 t rctl)
-  rs  (tap-hold-next-release 500 r rsft)
-  na  (tap-hold-next-release 500 n lalt)
-  sm  (tap-hold-next-release 500 s rmet)
-
+  gnum (tap-hold-next-release 500 g @num)
+  c3   (tap-hold-next-release 500 c @lv3)
+  
+  dnav (tap-hold-next-release 500 d @nav)
+  tc   (tap-hold-next-release 500 t rctl)
+  rs   (tap-hold-next-release 500 r rsft)
+  na   (tap-hold-next-release 500 n lalt)
+  sm   (tap-hold-next-release 500 s rmet)
+  
+  ;; Qwertz how row
+  ;; ====================================
+  q_am   (tap-hold-next-release 500 a lmet)
+  q_sa   (tap-hold-next-release 500 s lalt)
+  q_ds   (tap-hold-next-release 500 d rsft)
+  q_fc   (tap-hold-next-release 500 f lctl)
+  q_gnav (tap-hold-next-release 500 g @nav)
+  
+  q_e3   (tap-hold-next-release 500 e @lv3)
+  q_rnum (tap-hold-next-release 500 r @num)
+  
+  q_unum (tap-hold-next-release 500 u @num)
+  q_i3   (tap-hold-next-release 500 i @lv3)
+   
+  q_hnav (tap-hold-next-release 500 h @nav)
+  q_jc   (tap-hold-next-release 500 j rctl)
+  q_ks   (tap-hold-next-release 500 k rsft)
+  q_la   (tap-hold-next-release 500 l lalt)
+  q_öm   (tap-hold-next-release 500 ö rmet)  
 )
 
 (defalias
