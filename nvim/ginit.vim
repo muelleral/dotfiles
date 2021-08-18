@@ -1,4 +1,4 @@
 
-Guifont! Cascadia Code PL:h9
+Guifont! MesloLGS NF:h9
 call GuiWindowMaximized(1)
 
