@@ -32,7 +32,7 @@
                                       f6
   grv        1    2    3    4     5     6     7     8    9    0    -    =
   tab        k    .    @o3  @,num y     v     @gnum @c3  l    @sz  z    ´ 
-  @lv3       @hm  @aa  @es  @ic   @unav @dnav @tc   @rs  @na  @sm  f    @lv3 
+  @lv3       @hm  @aa  @es  @inav @uc   @dc   @tnav @rs  @na  @sm  f    @lv3 
   @lv2 @lv4  q    x    ä    ü     ö     b     p     w    m    j    rsft
   @cmap      lmet lalt        @spcnav              lalt rmet _    _
 )
@@ -145,7 +145,7 @@
 ;;+--------+------+-----------------------------------------------------------+-------+
     S-6      1     2     3     4       5       6       7       8     9     0     ß     apos
     tab      q     w     @q_e3 @q_rnum t       z       @q_unum @q_i3 o     p     ü     +
-    lctl     @q_am @q_sa @q_ds @q_fc   @q_gnav @q_hnav @q_jc   @q_ks @q_la @q_öm ä     #
+    lctl     @q_am @q_sa @q_ds @q_fnav @q_gc   @q_hc   @q_jnav @q_ks @q_la @q_öm ä     #
     lsft <   y     x     c     v       b       n       m       ,     .     -     rsft
     @cmap    lmet  lalt                @spcnav                   ralt rmet cmp  rctl
 )
@@ -198,8 +198,8 @@
   hm   (tap-hold-next-release 500 h lmet)
   aa   (tap-hold-next-release 500 a lalt)
   es   (tap-hold-next-release 500 e rsft)
-  ic   (tap-hold-next-release 500 i lctl)
-  unav (tap-hold-next-release 500 u @nav)
+  inav (tap-hold-next-release 500 i @nav)
+  uc   (tap-hold-next-release 500 u lctl)
   
   o3   (tap-hold-next-release 500 o @lv3)
   ,num (tap-hold-next-release 500 , @num)
@@ -207,8 +207,8 @@
   gnum (tap-hold-next-release 500 g @num)
   c3   (tap-hold-next-release 500 c @lv3)
   
-  dnav (tap-hold-next-release 500 d @nav)
-  tc   (tap-hold-next-release 500 t rctl)
+  dc   (tap-hold-next-release 500 d rctl)
+  tnav (tap-hold-next-release 500 t @nav)
   rs   (tap-hold-next-release 500 r rsft)
   na   (tap-hold-next-release 500 n lalt)
   sm   (tap-hold-next-release 500 s rmet)
@@ -218,8 +218,8 @@
   q_am   (tap-hold-next-release 500 a lmet)
   q_sa   (tap-hold-next-release 500 s lalt)
   q_ds   (tap-hold-next-release 500 d rsft)
-  q_fc   (tap-hold-next-release 500 f lctl)
-  q_gnav (tap-hold-next-release 500 g @nav)
+  q_fnav (tap-hold-next-release 500 f @nav)
+  q_gc   (tap-hold-next-release 500 g lctl)
   
   q_e3   (tap-hold-next-release 500 e @lv3)
   q_rnum (tap-hold-next-release 500 r @num)
@@ -227,8 +227,8 @@
   q_unum (tap-hold-next-release 500 u @num)
   q_i3   (tap-hold-next-release 500 i @lv3)
    
-  q_hnav (tap-hold-next-release 500 h @nav)
-  q_jc   (tap-hold-next-release 500 j rctl)
+  q_hc   (tap-hold-next-release 500 h rctl)
+  q_jnav (tap-hold-next-release 500 j @nav)
   q_ks   (tap-hold-next-release 500 k rsft)
   q_la   (tap-hold-next-release 500 l lalt)
   q_öm   (tap-hold-next-release 500 ö rmet)  
