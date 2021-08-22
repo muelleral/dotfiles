@@ -1,0 +1,102 @@
+(defcfg
+  ;; For Linux (set your device input file here)
+  ;; input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  ;; output (uinput-sink "KMonad output"
+  ;;  "/bin/sleep 1 && /bin/setxkbmap de -option compose:ralt")
+
+  ;; For Windows
+   input  (low-level-hook)
+   output (send-event-sink)
+
+  ;; For MacOS
+  ;; input  (iokit-name "my-keyboard-product-string")
+  ;; output (kext)
+
+  ;; Comment this is you want unhandled events not to be emitted
+  fallthrough true
+
+  ;; Set this to false to disable any command-execution in KMonad
+  allow-cmd false
+)
+
+#| --------------------------------------------------------------------------
+
+(deflayer name
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _    _    _    _    _    _    _    _    _    _    _
+  _     _    _              _              _    _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+
+(defsrc
+  grv       1    2    3    4    5    6    7    8    9    0    -    =
+  tab       q    w    e    r    t    y    u    i    o    p    [    ]
+  caps      a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt            spc                 ralt rmet cmp  rctl
+)
+
+(deflayer level1
+  S-6       1     2     3     4       5       6       7       8     9     0     @sz   apos
+  tab       q     w     @q_ea @q_rnum t       z       @q_unum @q_ia o     p     ü     +   
+  lctl      @q_am @q_sc @q_ds @q_fnav @q_gsym @q_hsym @q_jnav @q_ks @q_lc @q_öm ä     #
+  rsft <    y     x     c     v       b       n       m       ,     .     -     rsft
+  lctl lmet lalt                   spc                        ralt  rmet  cmp   rctl
+)
+
+
+(deflayer symbols
+  _          ¹    ²    ³    ›    ‹    ¢    ¥    ‚    ‘    ’    _    _
+  _          @    \_   [    ]    ^    !    <    >    =    &    €    /
+  XX         \    /    {    }    *    ?    \(   \)   -    :    @    XX
+  _    _     #    $    |    ~    `    +    %    "    '    ;    _
+  _          _    _              _              _    _    _    _
+)
+
+(deflayer numbers
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _         f9   f10  f11  f12  _    _    7    8    9    _    _    _
+  _         f5   f6   f7   f8   _    _    4    5    6    _    _    _
+  _   XX    f1   f2   f3   f4   _    _    1    2    3    _    _
+  _         _    _              0              _    _    _    _
+)
+
+(deflayer navigation
+  _         _    _    _    _    _    _    _    _    _    _    _    _
+  _         _    _    _    _    _    tab  bspc esc  _    _    _    _
+  _         lmet lctl rsft XX   _    lft  down up   rght ret  _    _
+  _   XX    _    _    _    _    _    home pgdn pgup end  _    _
+  _         _    _              _              _    _    _    _
+)
+
+
+(defalias
+  sym  (layer-toggle symbols)
+  num  (layer-toggle numbers)
+  nav  (layer-toggle navigation)
+  
+  ;; Qwertz how row
+  ;; ====================================
+  q_am   (tap-hold-next-release 500 a lmet)
+  q_sc   (tap-hold-next-release 500 s lctl)
+  q_ds   (tap-hold-next-release 500 d rsft)
+  q_fnav (tap-hold-next-release 500 f @nav)
+  q_gsym (tap-hold-next-release 500 g @sym)
+  
+  q_ea   (tap-hold-next-release 500 e lalt)
+  q_rnum (tap-hold-next-release 500 r @num)
+  
+  q_unum (tap-hold-next-release 500 u @num)
+  q_ia   (tap-hold-next-release 500 i lalt)
+   
+  q_hsym (tap-hold-next-release 500 h @sym)
+  q_jnav (tap-hold-next-release 500 j @nav)
+  q_ks   (tap-hold-next-release 500 k rsft)
+  q_lc   (tap-hold-next-release 500 l lctl)
+  q_öm   (tap-hold-next-release 500 ö rmet) 
+  
+  sz RA-s
+)
