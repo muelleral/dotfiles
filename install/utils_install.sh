@@ -42,5 +42,6 @@ sudo apt install exuberant-ctags
 # installinng. 
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install nodejs -y
+sudo npm install --global yarn
 
 sudo npm install -g tldr

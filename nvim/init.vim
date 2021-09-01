@@ -44,6 +44,8 @@ source $vim_config_dir/config/plugin/sneak.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
 source $vim_config_dir/config/plugin/treesitter.vim
+source $vim_config_dir/config/plugin/tabular.vim
+source $vim_config_dir/config/plugin/nvim-lsp.vim
 
 " auto completion
 if exists('g:vscode')
