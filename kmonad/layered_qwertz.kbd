@@ -79,23 +79,23 @@
   
   ;; Qwertz how row
   ;; ====================================
-  q_am   (tap-hold-next-release 500 a lmet)
-  q_sc   (tap-hold-next-release 500 s lctl)
-  q_ds   (tap-hold-next-release 500 d rsft)
-  q_fnav (tap-hold-next-release 500 f @nav)
-  q_gsym (tap-hold-next-release 500 g @sym)
+  q_am   (tap-hold-next-release 200 a lmet)
+  q_sc   (tap-hold-next-release 200 s lctl)
+  q_ds   (tap-hold-next-release 200 d rsft)
+  q_fnav (tap-hold-next-release 200 f @nav)
+  q_gsym (tap-hold-next-release 200 g @sym)
   
-  q_ea   (tap-hold-next-release 500 e lalt)
-  q_rnum (tap-hold-next-release 500 r @num)
+  q_ea   (tap-hold-next-release 200 e lalt)
+  q_rnum (tap-hold-next-release 200 r @num)
   
-  q_unum (tap-hold-next-release 500 u @num)
-  q_ia   (tap-hold-next-release 500 i lalt)
+  q_unum (tap-hold-next-release 200 u @num)
+  q_ia   (tap-hold-next-release 200 i lalt)
    
-  q_hsym (tap-hold-next-release 500 h @sym)
-  q_jnav (tap-hold-next-release 500 j @nav)
-  q_ks   (tap-hold-next-release 500 k rsft)
-  q_lc   (tap-hold-next-release 500 l lctl)
-  q_öm   (tap-hold-next-release 500 ö rmet) 
+  q_hsym (tap-hold-next-release 200 h @sym)
+  q_jnav (tap-hold-next-release 200 j @nav)
+  q_ks   (tap-hold-next-release 200 k rsft)
+  q_lc   (tap-hold-next-release 200 l lctl)
+  q_öm   (tap-hold-next-release 200 ö rmet) 
   
   sz RA-s
 )
