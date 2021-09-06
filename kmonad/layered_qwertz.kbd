@@ -41,8 +41,8 @@
 
 (deflayer level1
   S-6       1     2     3     4       5       6       7       8     9     0     @sz   apos
-  tab       q     w     @q_ea @q_rnum t       z       @q_unum @q_ia o     p     ü     +   
-  lctl      @q_am @q_sc @q_ds @q_fnav @q_gsym @q_hsym @q_jnav @q_ks @q_lc @q_öm ä     #
+  tab       q     w     @ea   @rnum   t       z       @unum   @ia   o     p     ü     +   
+  lctl      @am   @sc   @ds   @fnav   @gsym   @hsym   @jnav   @ks   @lc   @öm   ä     #
   rsft <    y     x     c     v       b       n       m       ,     .     -     rsft
   lctl lmet lalt                   spc                        ralt  rmet  cmp   rctl
 )
@@ -79,23 +79,23 @@
   
   ;; Qwertz how row
   ;; ====================================
-  q_am   (tap-hold-next-release 200 a lmet)
-  q_sc   (tap-hold-next-release 200 s lctl)
-  q_ds   (tap-hold-next-release 200 d rsft)
-  q_fnav (tap-hold-next-release 200 f @nav)
-  q_gsym (tap-hold-next-release 200 g @sym)
+  am   (tap-hold-next-release 200 a lmet)
+  sc   (tap-hold-next-release 200 s lctl)
+  ds   (tap-hold-next-release 200 d rsft)
+  fnav (tap-hold-next-release 200 f @nav)
+  gsym (tap-hold-next-release 200 g @sym)
   
-  q_ea   (tap-hold-next-release 200 e lalt)
-  q_rnum (tap-hold-next-release 200 r @num)
+  ea   (tap-hold-next-release 200 e lalt)
+  rnum (tap-hold-next-release 200 r @num)
   
-  q_unum (tap-hold-next-release 200 u @num)
-  q_ia   (tap-hold-next-release 200 i lalt)
+  unum (tap-hold-next-release 200 u @num)
+  ia   (tap-hold-next-release 200 i lalt)
    
-  q_hsym (tap-hold-next-release 200 h @sym)
-  q_jnav (tap-hold-next-release 200 j @nav)
-  q_ks   (tap-hold-next-release 200 k rsft)
-  q_lc   (tap-hold-next-release 200 l lctl)
-  q_öm   (tap-hold-next-release 200 ö rmet) 
+  hsym (tap-hold-next-release 200 h @sym)
+  jnav (tap-hold-next-release 200 j @nav)
+  ks   (tap-hold-next-release 200 k rsft)
+  lc   (tap-hold-next-release 200 l lctl)
+  öm   (tap-hold-next-release 200 ö rmet) 
   
   sz RA-s
 )
