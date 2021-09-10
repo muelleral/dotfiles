@@ -39,6 +39,7 @@ source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
+source $vim_config_dir/config/plugin/treesitter.vim
 
 " auto completion
 if exists('g:vscode')
