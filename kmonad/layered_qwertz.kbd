@@ -41,8 +41,8 @@
 
 (deflayer level1
   S-6       1     2     3     4       5       6       7       8     9     0     @sz   apos
-  tab       q     w     @ea   @rnum   t       z       @unum   @ia   o     p     ü     +   
-  lctl      @am   @sc   @ds   @fnav   @gsym   @hsym   @jnav   @ks   @lc   @öm   ä     #
+  tab       q     w     @ea   @rm     t       z       @um     @ia   o     p     ü     +   
+  @escc     @as   @snum @dsym @fnav   g       h       @jnav   @ksym @lnum @ös   @äc   #
   rsft <    y     x     c     v       b       n       m       ,     .     -     rsft
   lctl lmet lalt                   @spcnav                    ralt  rmet  cmp   rctl
 )
@@ -81,23 +81,23 @@
   
   ;; Qwertz how row
   ;; ====================================
-  am   (tap-hold-next-release 200 a lmet)
-  sc   (tap-hold-next-release 200 s lctl)
-  ds   (tap-hold-next-release 200 d rsft)
+  escc (tap-hold-next-release 200 esc lctl)
+  as   (tap-hold-next-release 200 a lsft)
+  snum (tap-hold-next-release 200 s @num)
+  dsym (tap-hold-next-release 200 d @sym)
   fnav (tap-hold-next-release 200 f @nav)
-  gsym (tap-hold-next-release 200 g @sym)
   
   ea   (tap-hold-next-release 200 e lalt)
-  rnum (tap-hold-next-release 200 r @num)
+  rm   (tap-hold-next-release 200 r lmet)
   
-  unum (tap-hold-next-release 200 u @num)
+  um   (tap-hold-next-release 200 u rmet)
   ia   (tap-hold-next-release 200 i lalt)
    
-  hsym (tap-hold-next-release 200 h @sym)
   jnav (tap-hold-next-release 200 j @nav)
-  ks   (tap-hold-next-release 200 k rsft)
-  lc   (tap-hold-next-release 200 l lctl)
-  öm   (tap-hold-next-release 200 ö rmet) 
+  ksym (tap-hold-next-release 200 k @sym)
+  lnum (tap-hold-next-release 200 l @num)
+  ös   (tap-hold-next-release 200 ö rsft) 
+  äc   (tap-hold-next-release 200 ä lctl) 
   
   sz RA-s
 )
