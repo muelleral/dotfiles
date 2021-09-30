@@ -1,4 +1,4 @@
-call minpac#add('nvim-treesitter/nvim-treesitter')
+call minpac#add('nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'})
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
