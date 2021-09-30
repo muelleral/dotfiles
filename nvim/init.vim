@@ -27,6 +27,9 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-rsi')
 call minpac#add('tpope/vim-surround')
 call minpac#add('ryanoasis/vim-devicons')
+call minpac#add('aklt/plantuml-syntax')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 
 " plugins with configuration
 source $vim_config_dir/config/plugin/airline.vim
