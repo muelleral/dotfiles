@@ -64,8 +64,8 @@ map <C-s> :w<CR>
 map <C-x> :bp \| bd #<CR>
 
 " remap only if popup manu is active
-inoremap <C-j> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>C-j>"<CR>
-inoremap <C-k> <C-R>=pumvisible() ? "\<lt>C-P>" : "\<lt>C-k>"<CR>
+inoremap <expr> <Down> ((pumvisible())?("\<C-n>"):("\<Down>"))
+inoremap <expr> <Up> ((pumvisible())?("\<C-p>"):("\<Up>"))
 
 " switch between current and last buffer
 nmap <leader>, <c-^>
