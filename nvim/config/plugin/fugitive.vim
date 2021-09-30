@@ -6,3 +6,5 @@ if has('autocmd')
    augroup END
 
 endif
+
+nmap <F5> :Git<CR>
