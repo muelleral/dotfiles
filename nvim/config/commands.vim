@@ -22,6 +22,7 @@ if has('autocmd')
    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
    autocmd BufNewFile,BufRead,BufEnter *.mki setfiletype make
+   autocmd BufNewFile,BufRead,BufEnter Jenkinsfile setfiletype groovy
 endif
 
 
