@@ -34,18 +34,18 @@ call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp
 " plugins with configuration
 source $vim_config_dir/config/plugin/airline.vim
 source $vim_config_dir/config/plugin/fugitive.vim
-source $vim_config_dir/config/plugin/fzf.vim
 source $vim_config_dir/config/plugin/gutentags.vim
 source $vim_config_dir/config/plugin/indentline.vim
-source $vim_config_dir/config/plugin/nerdtree.vim
 source $vim_config_dir/config/plugin/neoterm.vim
+source $vim_config_dir/config/plugin/nerdtree.vim
+source $vim_config_dir/config/plugin/nvim-lsp.vim
 source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim
 source $vim_config_dir/config/plugin/tabular.vim
-source $vim_config_dir/config/plugin/tagbar.vim
-source $vim_config_dir/config/plugin/treesitter.vim
 source $vim_config_dir/config/plugin/tabular.vim
-source $vim_config_dir/config/plugin/nvim-lsp.vim
+source $vim_config_dir/config/plugin/tagbar.vim
+source $vim_config_dir/config/plugin/telescope.vim
+source $vim_config_dir/config/plugin/treesitter.vim
 
 " auto completion
 if exists('g:vscode')
