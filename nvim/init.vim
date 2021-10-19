@@ -44,18 +44,15 @@ source $vim_config_dir/config/plugin/sneak.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
 source $vim_config_dir/config/plugin/treesitter.vim
+source $vim_config_dir/config/plugin/tabular.vim
+source $vim_config_dir/config/plugin/nvim-lsp.vim
 
 " auto completion
 if exists('g:vscode')
     source $vim_config_dir/config/plugin/vscode.vim
 else
-    if s:is_win == 0
-        source $vim_config_dir/config/plugin/coc.vim
-    else
-        call minpac#add('machakann/vim-highlightedyank')
-        source $vim_config_dir/config/plugin/deoplete.vim
-        source $vim_config_dir/config/plugin/ultisnips.vim
-    endif
+    source $vim_config_dir/config/plugin/nvim-cmp.vim
+    call minpac#add('machakann/vim-highlightedyank')
 endif
 
 source $vim_config_dir/config/commands.vim
