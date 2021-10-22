@@ -61,8 +61,6 @@ source $vim_config_dir/config/settings.vim
 
 if exists('g:started_by_firenvim')
     source $vim_config_dir/config/plugin/firenvim.vim
-else
-    source $vim_config_dir/config/plugin/startify.vim
 endif
 
 let s:local_vimrc = $vim_config_dir.'/local.vim'
