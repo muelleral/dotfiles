@@ -1,15 +1,19 @@
 call minpac#add('hrsh7th/nvim-cmp')
+call minpac#add('onsails/lspkind-nvim')
 
+" completion sources
 call minpac#add('hrsh7th/cmp-buffer')
 call minpac#add('hrsh7th/cmp-nvim-lsp')
 call minpac#add('hrsh7th/cmp-path')
-    
+
+" snippet engine
 call minpac#add('L3MON4D3/LuaSnip')
 call minpac#add('saadparwaiz1/cmp_luasnip')
 call minpac#add('rafamadriz/friendly-snippets')
 
 lua <<EOF
   local cmp = require'cmp'
+  local lspkind = require('lspkind')
   cmp.setup({
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -29,8 +33,20 @@ lua <<EOF
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
+
+
+  formatting = {
+    format = lspkind.cmp_format {
+        with_text = true,
+        menu = {
+            buffer = "[buf]",
+            nvim_lsp = "[LSP]",
+            path = "[path]",
+            luasnip = "[snip]"
             }
     },
+        }
+  },
     -- order sets priority for listed results
     sources = {
         { name = 'path' },
