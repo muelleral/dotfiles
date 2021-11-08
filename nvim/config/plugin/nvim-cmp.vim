@@ -31,11 +31,12 @@ lua <<EOF
             select = true,
             }
     },
+    -- order sets priority for listed results
     sources = {
-        { name = 'buffer' },
         { name = 'path' },
         { name = 'luasnip' },
-        { name = 'nvim_lsp'}
+        { name = 'nvim_lsp'},
+        { name = 'buffer', keyword_lenght = 5 }
     }
   })
   -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
