@@ -14,6 +14,8 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " plugins without configuration
 call minpac#add('rakr/vim-one')
+call minpac#add('EdenEast/nightfox.nvim')
+
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('nelstrom/vim-visual-star-search')
 if s:is_win == 0
