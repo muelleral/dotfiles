@@ -18,10 +18,6 @@ call minpac#add('EdenEast/nightfox.nvim')
 
 call minpac#add('tpope/vim-unimpaired')
 call minpac#add('nelstrom/vim-visual-star-search')
-if s:is_win == 0
-    call minpac#add('edkolev/tmuxline.vim')
-endif
-
 call minpac#add('junegunn/gv.vim')
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('tpope/vim-commentary')
@@ -34,10 +30,10 @@ call minpac#add('plasticboy/vim-markdown')
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 
 " plugins with configuration
-source $vim_config_dir/config/plugin/airline.vim
 source $vim_config_dir/config/plugin/fugitive.vim
 source $vim_config_dir/config/plugin/gutentags.vim
 source $vim_config_dir/config/plugin/indentline.vim
+source $vim_config_dir/config/plugin/lualine.vim
 source $vim_config_dir/config/plugin/neoterm.vim
 source $vim_config_dir/config/plugin/nerdtree.vim
 source $vim_config_dir/config/plugin/nvim-lsp.vim
