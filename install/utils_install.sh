@@ -15,6 +15,12 @@ curl -LO https://github.com/dandavison/delta/releases/download/0.6.0/git-delta_0
 sudo dpkg -i git-delta_*_amd64.deb
 cd -
 
+# install current version of rpgrep a faster grep alternative
+cd /tmp
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+sudo dpkg -i ripgrep_*_amd64.deb
+cd -
+
 # install fd and create a symlink because the installed binary is named fdfind due to a name clash
 sudo apt install fd-find -y
 ln -s /usr/bin/fdfind ~/.local/bin/fd
@@ -31,9 +37,6 @@ ln -s $SCRIPTPATH/../tmux/tmux.conf ~/.tmux.conf
 #tmux plugins
 git clone https://github.com/tmux-plugins/tmux-yank $HOME/.config/tmux/tmux-yank
 sudo apt install tmuxinator -y
-
-# install a faster grep alternative
-sudo apt install silversearcher-ag -y
 
 sudo apt install exuberant-ctags
 

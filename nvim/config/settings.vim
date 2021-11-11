@@ -6,8 +6,7 @@ set number relativenumber
 set laststatus=2
 
 " colorscheme
-colorscheme one
-set background=dark " for the dark version
+colorscheme nordfox
 
 " fold settings
 set foldenable
