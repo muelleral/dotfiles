@@ -24,7 +24,6 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-rsi')
 call minpac#add('tpope/vim-surround')
-call minpac#add('ryanoasis/vim-devicons')
 call minpac#add('aklt/plantuml-syntax')
 call minpac#add('plasticboy/vim-markdown')
 call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
@@ -37,9 +36,9 @@ source $vim_config_dir/config/plugin/lualine.lua
 source $vim_config_dir/config/plugin/neoterm.vim
 source $vim_config_dir/config/plugin/nerdtree.vim
 " source $vim_config_dir/config/plugin/nvim-lsp.vim
+source $vim_config_dir/config/plugin/nvim-web-devicons.lua
 source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim
-source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tabular.vim
 source $vim_config_dir/config/plugin/tagbar.vim
 source $vim_config_dir/config/plugin/telescope.vim
