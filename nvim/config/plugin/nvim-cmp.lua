@@ -1,4 +1,9 @@
+-- lsp
 vim.api.nvim_exec([[call minpac#add('neovim/nvim-lspconfig')]], false)
+vim.api.nvim_exec([[call minpac#add('folke/trouble.nvim')]], false)
+require("trouble").setup{}
+
+-- completion engine
 vim.api.nvim_exec([[call minpac#add('hrsh7th/nvim-cmp')]], false)
 vim.api.nvim_exec([[call minpac#add('onsails/lspkind-nvim')]], false)
 
