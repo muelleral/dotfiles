@@ -1,4 +1,7 @@
 #!/bin/bash
+# ------------
+# lsp
+# ------------
 sudo npm i -g pyright
 sudo npm i -g bash-language-server
 sudo npm i -g dockerfile-language-server-nodejs
@@ -11,3 +14,8 @@ sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
 
 sudo yarn global add yaml-language-server
 
+# ------------
+# linters
+# ------------
+sudo pip3 install pylint
+wget --output-document ~/.pylintrc https://google.github.io/styleguide/pylintrc

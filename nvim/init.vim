@@ -34,6 +34,7 @@ source $vim_config_dir/config/plugin/indentline.vim
 source $vim_config_dir/config/plugin/lualine.lua
 source $vim_config_dir/config/plugin/neoterm.vim
 " source $vim_config_dir/config/plugin/nvim-lsp.vim
+source $vim_config_dir/config/plugin/nvim-lint.lua
 source $vim_config_dir/config/plugin/nvim-tree.vim
 source $vim_config_dir/config/plugin/nvim-web-devicons.lua
 source $vim_config_dir/config/plugin/signify.vim
