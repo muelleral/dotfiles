@@ -3,7 +3,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # get path to th
 
 # install nvim as appimage (in sugguested location ${HOME}/Applications/ or ${HOME}/.local/bin/ or ${HOME}/bin/)
 cd ~/.local/bin 
-curl -LO https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage
 chmod u+x nvim.appimage
 
 # extract image to use it the same way in systems with and without fuse installed
