@@ -30,7 +30,6 @@ call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp
 
 " plugins with configuration
 source $vim_config_dir/config/plugin/fugitive.vim
-source $vim_config_dir/config/plugin/gutentags.vim
 source $vim_config_dir/config/plugin/indentline.vim
 source $vim_config_dir/config/plugin/lualine.lua
 source $vim_config_dir/config/plugin/neoterm.vim
