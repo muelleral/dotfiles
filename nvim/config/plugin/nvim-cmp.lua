@@ -4,6 +4,7 @@ vim.api.nvim_exec([[call minpac#add('onsails/lspkind-nvim')]], false)
 
 -- completion sources
 vim.api.nvim_exec([[call minpac#add('hrsh7th/cmp-buffer')]], false)
+vim.api.nvim_exec([[call minpac#add('hrsh7th/cmp-nvim-lua')]], false)
 vim.api.nvim_exec([[call minpac#add('hrsh7th/cmp-nvim-lsp')]], false)
 vim.api.nvim_exec([[call minpac#add('hrsh7th/cmp-path')]], false)
 
@@ -36,6 +37,7 @@ cmp.setup({
             with_text = true,
             menu = {
                 buffer = "[buf]",
+                nvim_lua = "[API]",
                 nvim_lsp = "[LSP]",
                 path = "[path]",
                 luasnip = "[snip]"
@@ -91,6 +93,7 @@ cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'luasnip' },
+        { name = 'nvim_lua'},
         { name = 'nvim_lsp'},
         { name = 'buffer', keyword_length = 5 } -- completion starts only after 5th char
     }

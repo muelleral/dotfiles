@@ -45,6 +45,7 @@ local servers = {
     'dockerls',
     'jsonls',
     'pyright',
+    'sumneko_lua',
     'yamlls'
 }
 

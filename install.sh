@@ -22,15 +22,15 @@ appendXDGandPATHToRcFile() {
 
 
 installEnvironment() {
-# update sources
-sudo apt update 
-sudo apt upgrade -y
-sudo apt install -y curl git vim
+    sudo apt update 
+    sudo apt upgrade -y
+    sudo apt install -y curl git vim
 
-$SCRIPTPATH/install/zsh_install.sh
-$SCRIPTPATH/install/python_install.sh
-$SCRIPTPATH/install/utils_install.sh
-$SCRIPTPATH/install/nvim_install.sh
+    $SCRIPTPATH/install/zsh_install.sh
+    $SCRIPTPATH/install/lua_install.sh
+    $SCRIPTPATH/install/python_install.sh
+    $SCRIPTPATH/install/utils_install.sh
+    $SCRIPTPATH/install/nvim_install.sh
 }
 
 

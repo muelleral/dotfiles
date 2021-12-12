@@ -40,11 +40,17 @@ sudo apt install tmuxinator -y
 
 sudo apt install exuberant-ctags
 
-# Configure CoC
-# Coc requires current verion of nodejs. Availabe ubuntu package is to old. Therefore get new nodjs sources before
-# installinng. 
+# Availabe ubuntu package is to old. Therefore get new nodjs sources before installinng. 
 curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install nodejs -y
 sudo npm install --global yarn
 
 sudo npm install -g tldr
+
+# ------------
+# linters
+# ------------
+sudo pip3 install pylint
+wget --output-document ~/.pylintrc https://google.github.io/styleguide/pylintrc
+
+sudo luarocks install luacheck

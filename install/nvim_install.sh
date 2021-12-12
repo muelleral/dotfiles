@@ -19,7 +19,6 @@ sh -c 'git clone https://github.com/k-takata/minpac.git "${XDG_CONFIG_HOME:-$HOM
 ln -s $SCRIPTPATH/../nvim/init.vim ~/.config/nvim/init.vim
 ln -s $SCRIPTPATH/../nvim/config ~/.config/nvim/config
 ~/.local/bin/nvim --headless +"call minpac#update()" +qa
-bash $SCRIPTPATH/nvim_lsp.sh
 
 # create default local nvim config if none exists
 LOCAL_VIMRC=~/.config/nvim/local.vim
