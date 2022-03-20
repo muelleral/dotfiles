@@ -45,3 +45,5 @@ set colorcolumn=120
 
 "set background color for column 120
 highlight ColorColumn ctermbg=magenta guibg=grey23
+
+lua vim.diagnostic.config({virtual_text = false})
