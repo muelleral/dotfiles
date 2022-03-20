@@ -5,7 +5,7 @@ local lsp_installer = require("nvim-lsp-installer")
 
 vim.api.nvim_exec([[call minpac#add('folke/trouble.nvim')]], false)
 require("trouble").setup{}
-vim.api.nvim_exec([[nmap <F12> :Trouble document_diagnostics<CR>]], false)
+vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
