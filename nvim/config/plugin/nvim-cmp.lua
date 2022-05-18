@@ -83,10 +83,6 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-        }),
-        ['<Right>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
         })
     },
     -- order sets priority for listed results
