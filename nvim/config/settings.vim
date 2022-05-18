@@ -3,7 +3,7 @@ syntax on
 
 " set hybrid line numbers in active buffer. Change to absolute numbers in not active buffer
 set number relativenumber
-set laststatus=2
+set laststatus=3 " 3 - enable global status line
 
 " colorscheme
 colorscheme nordfox
