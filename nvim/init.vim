@@ -35,7 +35,6 @@ source $vim_config_dir/config/plugin/lualine.lua
 source $vim_config_dir/config/plugin/floaterm.vim
 source $vim_config_dir/config/plugin/nvim-lint.lua
 source $vim_config_dir/config/plugin/nvim-lsp.lua
-source $vim_config_dir/config/plugin/nvim-tree.vim
 source $vim_config_dir/config/plugin/nvim-web-devicons.lua
 source $vim_config_dir/config/plugin/signify.vim
 source $vim_config_dir/config/plugin/sneak.vim

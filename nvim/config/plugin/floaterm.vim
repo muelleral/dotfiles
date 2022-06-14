@@ -6,3 +6,6 @@ let g:floaterm_opener = "edit" "edit will reuse buffer. Default is split
 
 nmap <F7> :FloatermToggle<CR>
 tnoremap <F7> <c-\><c-n>:FloatermToggle<CR>
+
+nmap <F6> ::FloatermNew ranger<CR>
+
