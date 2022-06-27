@@ -57,12 +57,11 @@ tar xvf lazygit_0.34_Linux_x86_64.tar.gz
 mv lazygit ~/.local/bin/
 ln -s ~/.local/bin/lazygit ~/.local/bin/lg
 
-
 mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit
 ln -s $SCRIPTPATH/../lazygit/config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/config.yml
-
-
+ln -s $SCRIPTPATH/../lazygit/lg_nvim_config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/lg_nvim_config.yml
 cd -
+
 # ------------
 # linters
 # ------------
