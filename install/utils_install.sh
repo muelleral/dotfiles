@@ -49,6 +49,20 @@ sudo npm install -g tldr
 
 # File Explorer
 pip3 install ranger-fm
+
+# install lazygit
+cd /tmp
+curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
+tar xvf lazygit_0.34_Linux_x86_64.tar.gz
+mv lazygit ~/.local/bin/
+ln -s ~/.local/bin/lazygit ~/.local/bin/lg
+
+
+mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit
+ln -s $SCRIPTPATH/../lazygit/config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/config.yml
+
+
+cd -
 # ------------
 # linters
 # ------------
