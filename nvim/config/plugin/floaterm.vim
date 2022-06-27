@@ -9,3 +9,4 @@ tnoremap <F7> <c-\><c-n>:FloatermToggle<CR>
 
 nmap <F6> ::FloatermNew ranger<CR>
 
+nmap <F5> :FloatermNew lazygit --use-config-file=${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/lg_nvim_config.yml<CR>
