@@ -32,10 +32,12 @@ cmp.setup({
         end,
     },
 
+    -- remove duplacte entries from suggestions
+    -- https://github.com/hrsh7th/nvim-cmp/issues/511#issuecomment-1063014008
     formatting = {
-        format = lspkind.cmp_format {
-            with_text = true,
-            menu = {
+      format = function(entry, vim_item)
+        vim_item.kind = lspkind.presets.default[vim_item.kind]
+        vim_item.menu = ({
                 buffer = "[buf]",
                 nvim_lua = "[API]",
                 nvim_lsp = "[LSP]",
@@ -43,6 +45,16 @@ cmp.setup({
                 luasnip = "[snip]"
             }
         }
+        })[entry.source.name]
+        vim_item.dup = ({
+            buffer = 0,
+            nvim_lua = 0,
+            nvim_lsp = 0,
+            path = 0,
+            luasnip = 0
+        })[entry.source.name] or 0
+        return vim_item
+      end
     },
 
     experimental = {
