@@ -47,6 +47,8 @@ sudo npm install --global yarn
 
 sudo npm install -g tldr
 
+# File Explorer
+pip3 install ranger-fm
 # ------------
 # linters
 # ------------
