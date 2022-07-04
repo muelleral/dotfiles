@@ -1,6 +1,7 @@
 # Detailed Infos
-- [wsl](./doc/wsl.md)
 - [nvim](./doc/nvim.md)
+- [ranger](./doc/ranger.md)
+- [wsl](./doc/wsl.md)
 
 # Font
 Powerline10K theme requires a Nerd Font to repesent all characters. Powerline10K recommands "MesloLGS NF"
