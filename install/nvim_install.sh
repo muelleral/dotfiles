@@ -15,10 +15,10 @@ pip3 install neovim
 sudo npm install -g neovim
 
 # get plugin manager, setup nvim config and install plugins
-sh -c 'git clone https://github.com/k-takata/minpac.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim/pack/minpac/opt/minpac'
-ln -s $SCRIPTPATH/../nvim/init.vim ~/.config/nvim/init.vim
-ln -s $SCRIPTPATH/../nvim/config ~/.config/nvim/config
-~/.local/bin/nvim --headless +"call minpac#update()" +qa
+sh -c 'git clone --depth 1 https://github.com/wbthomason/packer.nvim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/packer/start/packer.nvim'
+ln -s $SCRIPTPATH/../nvim/init.lua ~/.config/nvim/init.lua
+ln -s $SCRIPTPATH/../nvim/lua ~/.config/nvim/lua
+~/.local/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 
 
 # create default local nvim config if none exists
 LOCAL_VIMRC=~/.config/nvim/local.vim
