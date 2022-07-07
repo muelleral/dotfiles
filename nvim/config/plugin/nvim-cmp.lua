@@ -43,8 +43,6 @@ cmp.setup({
                 nvim_lsp = "[LSP]",
                 path = "[path]",
                 luasnip = "[snip]"
-            }
-        }
         })[entry.source.name]
         vim_item.dup = ({
             buffer = 0,
