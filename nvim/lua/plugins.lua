@@ -30,9 +30,16 @@ return require("packer").startup({function(use)
 		}
 }
     -- statusline
+  -- statusline
   use {
     'nvim-lualine/lualine.nvim',
     config = [[require('config.lualine')]]
+  }
+
+  -- terminal
+  use {
+    'voldikss/vim-floaterm',
+    config = [[require('config.floaterm')]]
   }
 
 end,
