@@ -1,7 +1,10 @@
 return require("packer").startup({function(use)
   use 'wbthomason/packer.nvim'
   use "lewis6991/impatient.nvim" -- speeds up nvim start
-  -- Your plugins here
+
+  -- colorscheme
+  use {"EdenEast/nightfox.nvim", config = function() vim.cmd [[colorscheme nordfox]] end}
+
   -- Search
   use {
 		{
@@ -28,6 +31,7 @@ return require("packer").startup({function(use)
 }
 
 end,
+-- config packer to use floating window
 config = {
   display = {
     open_fn = require('packer.util').float,
