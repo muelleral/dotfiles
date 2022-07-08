@@ -29,6 +29,11 @@ return require("packer").startup({function(use)
 			end
 		}
 }
+    -- statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = [[require('config.lualine')]]
+  }
 
 end,
 -- config packer to use floating window
