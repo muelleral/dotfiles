@@ -63,6 +63,13 @@ return require("packer").startup({function(use)
       config = [[require('config.luasnip')]]
     }
   }
+
+  -- indentation
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = [[require('config.indent-blankline')]]
+  }
+
 end,
 -- config packer to use floating window
 config = {
