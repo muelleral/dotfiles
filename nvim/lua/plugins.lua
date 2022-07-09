@@ -42,6 +42,27 @@ return require("packer").startup({function(use)
     config = [[require('config.floaterm')]]
   }
 
+  -- completion
+  use {
+    {
+      'hrsh7th/nvim-cmp',
+      requires = {
+        'onsails/lspkind-nvim',
+        'L3MON4D3/LuaSnip',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'saadparwaiz1/cmp_luasnip',
+        'rafamadriz/friendly-snippets'
+      },
+      config = [[require('config.cmp')]]
+    },
+    {
+      'L3MON4D3/LuaSnip',
+      config = [[require('config.luasnip')]]
+    }
+  }
 end,
 -- config packer to use floating window
 config = {
