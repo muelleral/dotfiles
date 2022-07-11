@@ -83,6 +83,13 @@ return require("packer").startup({function(use)
     'lewis6991/gitsigns.nvim',
     config = [[require('config.gitsigns')]]
   }
+
+  -- movement
+  use {
+    'justinmk/vim-sneak',
+    config = [[require('config.sneak')]]
+  }
+
 end,
 -- config packer to use floating window
 config = {
