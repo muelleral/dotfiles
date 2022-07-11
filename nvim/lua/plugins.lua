@@ -77,6 +77,12 @@ return require("packer").startup({function(use)
     config = [[require('config.treesitter')]],
     run = ':TSUpdate'
   }
+
+  -- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = [[require('config.gitsigns')]]
+  }
 end,
 -- config packer to use floating window
 config = {
