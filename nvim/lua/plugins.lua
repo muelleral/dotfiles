@@ -70,6 +70,13 @@ return require("packer").startup({function(use)
     config = [[require('config.indent-blankline')]]
   }
 
+  -- treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {"p00f/nvim-ts-rainbow"},
+    config = [[require('config.treesitter')]],
+    run = ':TSUpdate'
+  }
 end,
 -- config packer to use floating window
 config = {
