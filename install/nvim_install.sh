@@ -14,16 +14,15 @@ cd -
 pip3 install neovim
 sudo npm install -g neovim
 
-# get plugin manager, setup nvim config and install plugins
+# configure nvim 
+ln -s $SCRIPTPATH/../nvim/init.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.lua
+# create symlinks for files instead of complete lua dir. This allows to create additional configs 
+# which are not port of this repo (e.g. private.lua)
+ln -s $SCRIPTPATH/../nvim/lua/config ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/config
+ln -s $SCRIPTPATH/../nvim/lua/keymap.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/keymap.lua
+ln -s $SCRIPTPATH/../nvim/lua/options.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/options.lua
+ln -s $SCRIPTPATH/../nvim/lua/plugins.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/plugins.lua
+
+# get plugin manager and install plugins
 sh -c 'git clone --depth 1 https://github.com/wbthomason/packer.nvim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/packer/start/packer.nvim'
-ln -s $SCRIPTPATH/../nvim/init.lua ~/.config/nvim/init.lua
-ln -s $SCRIPTPATH/../nvim/lua ~/.config/nvim/lua
 ~/.local/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 
-
-# create default local nvim config if none exists
-LOCAL_VIMRC=~/.config/nvim/local.vim
-if [ ! -f $LOCAL_VIMRC ]; then 
-    PYTHON_PATH=$(which python3)
-    echo "let g:python3_host_prog = '$PYTHON_PATH'" > $LOCAL_VIMRC
-fi
-
