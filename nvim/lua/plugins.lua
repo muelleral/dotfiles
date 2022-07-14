@@ -90,6 +90,17 @@ return require("packer").startup({function(use)
     config = [[require('config.sneak')]]
   }
 
+  -- private plugins
+  -- private plugins needs to be available in private.plugins.lua.
+  -- It must contain a get_plugins fuction which returns a valid packer config as table.
+  local private_config_available, private_config = pcall(require, "private.plugins")
+  if private_config_available then
+    local private_plugins = private_config.get_plugins()
+    for _, plugin in ipairs(private_plugins) do
+      use(plugin)
+    end
+  end
+
 end,
 -- config packer to use floating window
 config = {
