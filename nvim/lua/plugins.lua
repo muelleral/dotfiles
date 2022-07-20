@@ -90,6 +90,24 @@ return require("packer").startup({function(use)
     config = [[require('config.sneak')]]
   }
 
+  -- LSP
+  use {
+    {
+      'neovim/nvim-lspconfig',
+      after = 'nvim-cmp',
+      requires = {
+        'williamboman/nvim-lsp-installer',
+        'folke/trouble.nvim'
+      }
+    },
+    {
+      'folke/trouble.nvim',
+      config = function ()
+        require("trouble").setup{}
+        vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
+      end
+    }
+  }
   -- private plugins
   -- private plugins needs to be available in private.plugins.lua.
   -- It must contain a get_plugins fuction which returns a valid packer config as table.
