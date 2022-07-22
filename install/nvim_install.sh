@@ -19,6 +19,7 @@ ln -s $SCRIPTPATH/../nvim/init.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.l
 # create symlinks for files instead of complete lua dir. This allows to create additional configs 
 # which are not port of this repo (e.g. private.lua)
 ln -s $SCRIPTPATH/../nvim/lua/config ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/config
+ln -s $SCRIPTPATH/../nvim/lua/commands.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/commands.lua
 ln -s $SCRIPTPATH/../nvim/lua/keymap.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/keymap.lua
 ln -s $SCRIPTPATH/../nvim/lua/options.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/options.lua
 ln -s $SCRIPTPATH/../nvim/lua/plugins.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua/plugins.lua
