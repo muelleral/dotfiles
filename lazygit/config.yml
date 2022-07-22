@@ -5,7 +5,9 @@ gui:
         selectedRangeBgColor: 
             - underline
 
+    showIcons: true
+    expandFocusedSidePanel: true
 git:
     paging:
-        colorArg: never
+        colorArg: always
         pager: delta --dark --paging=never
