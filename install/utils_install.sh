@@ -1,23 +1,28 @@
 #!/bin/bash
 SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # get path to this file
 
+BAT_VERSION=0.21.0
+DELTA_VERSION=0.13.0
+LAZYGIT_VERSION=0.35
+RIPGREP_VERSION=13.0.0
+
 mkdir -p ~/.local/bin
 
 # install current version of bat
 cd /tmp
-curl -LO https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
-sudo dpkg -i bat_*_amd64.deb
+curl -LO https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat_$BAT_VERSION\_amd64.deb
+sudo dpkg -i bat_$BAT_VERSION\_amd64.deb
 cd -
 
 # install current version of delta
 cd /tmp
-curl -LO https://github.com/dandavison/delta/releases/download/0.6.0/git-delta_0.6.0_amd64.deb
-sudo dpkg -i git-delta_*_amd64.deb
+curl -LO https://github.com/dandavison/delta/releases/download/$DELTA_VERSION/git-delta_$DELTA_VERSION\_amd64.deb
+sudo dpkg -i git-delta_$DELTA_VERSION\_amd64.deb
 cd -
 
 # install current version of rpgrep a faster grep alternative
 cd /tmp
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/$RIPGREP_VERSION/ripgrep_$RIPGREP_VERSION\_amd64.deb
 sudo dpkg -i ripgrep_*_amd64.deb
 cd -
 
@@ -52,8 +57,8 @@ pip3 install ranger-fm
 
 # install lazygit
 cd /tmp
-curl -LO https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
-tar xvf lazygit_0.34_Linux_x86_64.tar.gz
+curl -LO https://github.com/jesseduffield/lazygit/releases/download/v$LAZYGIT_VERSION/lazygit_$LAZYGIT_VERSION\_Linux_x86_64.tar.gz
+tar xvf lazygit_$LAZYGIT_VERSION\_Linux_x86_64.tar.gz
 mv lazygit ~/.local/bin/
 ln -s ~/.local/bin/lazygit ~/.local/bin/lg
 
