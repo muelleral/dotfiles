@@ -108,6 +108,25 @@ return require("packer").startup({function(use)
       end
     }
   }
+
+  -- others 
+  use {'machakann/vim-highlightedyank'}
+  use {'nelstrom/vim-visual-star-search'}
+  use {'tpope/vim-commentary'}
+  use {'tpope/vim-repeat'}
+  use {'tpope/vim-surround'}
+  use {'tpope/vim-unimpaired'}
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+  use {
+    'kyazdani42/nvim-web-devicons',
+    conifg = function()
+      require'nvim-web-devicons'.setup {}
+    end
+  }
+
   -- private plugins
   -- private plugins needs to be available in private.plugins.lua.
   -- It must contain a get_plugins fuction which returns a valid packer config as table.
