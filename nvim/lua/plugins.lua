@@ -109,6 +109,16 @@ return require("packer").startup({function(use)
     }
   }
 
+  -- code analysis
+  use {
+    'mfussenegger/nvim-lint',
+    config = [[require('config.nvim-lint')]]
+  }
+  use {
+    'mhartington/formatter.nvim',
+    config = [[require('config.formatter')]]
+  }
+
   -- others 
   use {'machakann/vim-highlightedyank'}
   use {'nelstrom/vim-visual-star-search'}
