@@ -14,6 +14,9 @@ null_ls.setup {
     -- lua
     diagnostics.luacheck,
     -- python
+    diagnostics.flake8,
     diagnostics.pylint,
+    formatting.black,
+    formatting.isort,
   },
 }

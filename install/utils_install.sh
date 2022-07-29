@@ -73,4 +73,8 @@ cd -
 sudo pip3 install pylint
 wget --output-document ~/.pylintrc https://google.github.io/styleguide/pylintrc
 
+sudo pip3 install flake8
+sudo pip3 install isort
+sudo pip3 install black
+
 sudo luarocks install luacheck
