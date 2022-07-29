@@ -13,6 +13,8 @@ null_ls.setup {
     formatting.clang_format,
     -- lua
     diagnostics.luacheck,
+    -- prose
+    diagnostics.vale,
     -- python
     diagnostics.flake8,
     diagnostics.pylint,
