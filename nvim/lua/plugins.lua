@@ -97,7 +97,8 @@ return require("packer").startup({function(use)
       after = 'nvim-cmp',
       requires = {
         'williamboman/nvim-lsp-installer',
-        'folke/trouble.nvim'
+        'folke/trouble.nvim',
+        'jose-elias-alvarez/null-ls.nvim'
       }
     },
     {
@@ -107,16 +108,6 @@ return require("packer").startup({function(use)
         vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
       end
     }
-  }
-
-  -- code analysis
-  use {
-    'mfussenegger/nvim-lint',
-    config = [[require('config.nvim-lint')]]
-  }
-  use {
-    'mhartington/formatter.nvim',
-    config = [[require('config.formatter')]]
   }
 
   -- others 
