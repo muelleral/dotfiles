@@ -110,7 +110,23 @@ return require("packer").startup({function(use)
     }
   }
 
-  -- others 
+  -- Debugging
+  use {
+    "mfussenegger/nvim-dap",
+    config = [[require('config.nvim-dap')]]
+  }
+  use {
+    "rcarriga/nvim-dap-ui",
+    config = [[require.('config.nvim-dap-ui')]]
+  }
+  use {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function ()
+      require('nvim-dap-virtual-text').setup{}
+    end
+  }
+
+  -- others
   use {'machakann/vim-highlightedyank'}
   use {'nelstrom/vim-visual-star-search'}
   use {'tpope/vim-commentary'}

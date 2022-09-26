@@ -14,6 +14,13 @@ cd -
 pip3 install neovim
 sudo npm install -g neovim
 
+# dap setup
+cd ~/.local/bin 
+curl -LO https://github.com/microsoft/vscode-cpptools/releases/download/v1.12.4/cpptools-linux.vsix
+unzip cpptools-linux.vsix -d cpptools
+chmod u+x cpptools/extension/debugAdapters/bin/OpenDebugAD7
+cd -
+
 # configure nvim 
 ln -s $SCRIPTPATH/../nvim/init.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.lua
 # create symlinks for files instead of complete lua dir. This allows to create additional configs 
@@ -27,3 +34,10 @@ ln -s $SCRIPTPATH/../nvim/lua/plugins.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvi
 # get plugin manager and install plugins
 sh -c 'git clone --depth 1 https://github.com/wbthomason/packer.nvim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/packer/start/packer.nvim'
 ~/.local/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 
+CPPTOOLS_VERSION=1.12.4
+  cd ~/.local/bin 
+  curl -LO https://github.com/microsoft/vscode-cpptools/releases/download/v$CPPTOOLS_VERSION/cpptools-linux.vsix
+  unzip cpptools-linux.vsix -d cpptools
+  chmod u+x cpptools/extension/debugAdapters/bin/OpenDebugAD7
+  rm cpptools-linux.vsix
+  cd -
