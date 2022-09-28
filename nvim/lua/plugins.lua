@@ -90,24 +90,18 @@ return require("packer").startup({function(use)
     config = [[require('config.sneak')]]
   }
 
+  -- Package Manager
+  use {'williamboman/mason.nvim'}
   -- LSP
+  use {'williamboman/mason-lspconfig.nvim'}
+  use {'neovim/nvim-lspconfig'}
+  use {'jose-elias-alvarez/null-ls.nvim'}
   use {
-    {
-      'neovim/nvim-lspconfig',
-      after = 'nvim-cmp',
-      requires = {
-        'williamboman/nvim-lsp-installer',
-        'folke/trouble.nvim',
-        'jose-elias-alvarez/null-ls.nvim'
-      }
-    },
-    {
-      'folke/trouble.nvim',
-      config = function ()
-        require("trouble").setup{}
-        vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
-      end
-    }
+    'folke/trouble.nvim',
+    config = function()
+      require("trouble").setup {}
+      vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
+    end
   }
 
   -- others 
