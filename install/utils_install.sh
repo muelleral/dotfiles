@@ -5,7 +5,6 @@ BAT_VERSION=0.21.0
 DELTA_VERSION=0.13.0
 LAZYGIT_VERSION=0.35
 RIPGREP_VERSION=13.0.0
-VALE_VERSION=2.20.1
 
 mkdir -p ~/.local/bin
 
@@ -66,26 +65,4 @@ ln -s ~/.local/bin/lazygit ~/.local/bin/lg
 mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit
 ln -s $SCRIPTPATH/../lazygit/config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/config.yml
 ln -s $SCRIPTPATH/../lazygit/lg_nvim_config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/lg_nvim_config.yml
-cd -
-
-# ------------
-# linters
-# ------------
-sudo pip3 install pylint
-wget --output-document ~/.pylintrc https://google.github.io/styleguide/pylintrc
-
-sudo pip3 install flake8
-sudo pip3 install isort
-sudo pip3 install black
-
-sudo luarocks install luacheck
-
-# install vale
-cd /tmp
-curl -LO https://github.com/errata-ai/vale/releases/download/v$VALE_VERSION/vale_$VALE_VERSION\_Linux_64-bit.tar.gz
-tar xvf vale_$VALE_VERSION\_Linux_64-bit.tar.gz
-mv vale ~/.local/bin/
-ln -s $SCRIPTPATH/../vale/vale.ini $HOME/.vale.ini
-# will download packages specified in vale.ini
-vale sync
 cd -
