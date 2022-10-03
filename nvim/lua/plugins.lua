@@ -92,6 +92,12 @@ return require("packer").startup({function(use)
 
   -- Package Manager
   use {'williamboman/mason.nvim'}
+  use {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    config = [[require('config.mason-tool-installer')]],
+    requires = {'williamboman/mason.nvim'}
+  }
+  
   -- LSP
   use {'williamboman/mason-lspconfig.nvim'}
   use {'neovim/nvim-lspconfig'}
@@ -104,7 +110,7 @@ return require("packer").startup({function(use)
     end
   }
 
-  -- others 
+  -- others
   use {'machakann/vim-highlightedyank'}
   use {'nelstrom/vim-visual-star-search'}
   use {'tpope/vim-commentary'}
