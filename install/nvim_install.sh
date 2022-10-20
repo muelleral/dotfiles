@@ -15,15 +15,16 @@ installNvim() {
 
   # extract image to use it the same way in systems with and without fuse installed
   ./nvim.appimage --appimage-extract
+  ln -sf ~/.local/bin/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
   cd -
 }
 
 bootstrapNvim() {
-  ln -s squashfs-root/usr/bin/nvim nvim
   pip3 install neovim
   sudo npm install -g neovim
 
   # configure nvim 
+  mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lua #make sure folder exists
   ln -s $SCRIPTPATH/../nvim/init.lua ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.lua
   # create symlinks for files instead of complete lua dir. This allows to create additional configs 
   # which are not port of this repo (e.g. private.lua)
