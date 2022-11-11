@@ -44,13 +44,6 @@ LS_COLORS=$LS_COLORS:'ow=30;42'; export LS_COLORS
 # export FZF_DEFAULT_COMMAND='ag'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
-# virtualenvwrapper settings
-export WORKON_HOME=${XDG_DATA_HOME:-$HOME}/.virtualenvs
-export PROJECT_HOME=${XDG_DATA_HOME:-$HOME}/Devel
-export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-source ~/.local/bin/virtualenvwrapper.sh
-
 #######################################################################################################################
 # Functions
 #######################################################################################################################

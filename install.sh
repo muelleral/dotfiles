@@ -25,6 +25,7 @@ installEnvironment() {
     sudo apt update 
     sudo apt upgrade -y
     sudo apt install -y curl git vim
+    sudo apt install python3-pip -y
 
     $SCRIPTPATH/install/zsh_install.sh
     $SCRIPTPATH/install/lua_install.sh
