@@ -16,6 +16,7 @@ installNvim() {
   # extract image to use it the same way in systems with and without fuse installed
   ./nvim.appimage --appimage-extract
   ln -sf ~/.local/bin/squashfs-root/usr/bin/nvim ~/.local/bin/nvim
+  ln -sf ~/.local/bin/nvim ~/.local/bin/v
   cd -
 }
 
