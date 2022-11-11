@@ -12,8 +12,6 @@ null_ls.setup {
     -- cpp
     formatting.clang_format,
     -- lua
-    -- prose
-    diagnostics.vale,
     -- python
     diagnostics.flake8,
     diagnostics.pylint,
