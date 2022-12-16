@@ -44,26 +44,26 @@ return require("packer").startup({function(use)
   }
 
   -- completion
-  -- use {
-  --   {
-  --     'hrsh7th/nvim-cmp',
-  --     requires = {
-  --       'onsails/lspkind-nvim',
-  --       'L3MON4D3/LuaSnip',
-  --       'hrsh7th/cmp-buffer',
-  --       'hrsh7th/cmp-nvim-lua',
-  --       'hrsh7th/cmp-nvim-lsp',
-  --       'hrsh7th/cmp-path',
-  --       'saadparwaiz1/cmp_luasnip',
-  --       'rafamadriz/friendly-snippets'
-  --     },
-  --     config = [[require('config.cmp')]]
-  --   },
-    -- {
-    --   'L3MON4D3/LuaSnip',
-    --   config = [[require('config.luasnip')]]
-    -- }
-  -- }
+  use {
+    {
+      'hrsh7th/nvim-cmp',
+      requires = {
+        'onsails/lspkind-nvim',
+        'L3MON4D3/LuaSnip',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'saadparwaiz1/cmp_luasnip',
+        'rafamadriz/friendly-snippets'
+      },
+      config = [[require('config.cmp')]]
+    },
+    {
+      'L3MON4D3/LuaSnip',
+      config = [[require('config.luasnip')]]
+    }
+  }
 
   -- indentation
   use {
@@ -72,12 +72,12 @@ return require("packer").startup({function(use)
   }
 
   -- treesitter
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   requires = {"p00f/nvim-ts-rainbow"},
-  --   config = [[require('config.treesitter')]],
-  --   run = ':TSUpdate'
-  -- }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {"p00f/nvim-ts-rainbow"},
+    config = [[require('config.treesitter')]],
+    run = ':TSUpdate'
+  }
 
   -- git
   use {
