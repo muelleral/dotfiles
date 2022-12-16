@@ -43,26 +43,26 @@ return require("packer").startup({function(use)
   }
 
   -- completion
-  use {
-    {
-      'hrsh7th/nvim-cmp',
-      requires = {
-        'onsails/lspkind-nvim',
-        'L3MON4D3/LuaSnip',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
-        'rafamadriz/friendly-snippets'
-      },
-      config = [[require('config.cmp')]]
-    },
-    {
-      'L3MON4D3/LuaSnip',
-      config = [[require('config.luasnip')]]
-    }
-  }
+  -- use {
+  --   {
+  --     'hrsh7th/nvim-cmp',
+  --     requires = {
+  --       'onsails/lspkind-nvim',
+  --       'L3MON4D3/LuaSnip',
+  --       'hrsh7th/cmp-buffer',
+  --       'hrsh7th/cmp-nvim-lua',
+  --       'hrsh7th/cmp-nvim-lsp',
+  --       'hrsh7th/cmp-path',
+  --       'saadparwaiz1/cmp_luasnip',
+  --       'rafamadriz/friendly-snippets'
+  --     },
+  --     config = [[require('config.cmp')]]
+  --   },
+    -- {
+    --   'L3MON4D3/LuaSnip',
+    --   config = [[require('config.luasnip')]]
+    -- }
+  -- }
 
   -- indentation
   use {
@@ -71,18 +71,18 @@ return require("packer").startup({function(use)
   }
 
   -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    requires = {"p00f/nvim-ts-rainbow"},
-    config = [[require('config.treesitter')]],
-    run = ':TSUpdate'
-  }
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   requires = {"p00f/nvim-ts-rainbow"},
+  --   config = [[require('config.treesitter')]],
+  --   run = ':TSUpdate'
+  -- }
 
   -- git
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = [[require('config.gitsigns')]]
-  }
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = [[require('config.gitsigns')]]
+  -- }
 
   -- movement
   use {
@@ -91,24 +91,24 @@ return require("packer").startup({function(use)
   }
 
   -- Package Manager
-  use {'williamboman/mason.nvim'}
-  use {
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
-    config = [[require('config.mason-tool-installer')]],
-    requires = {'williamboman/mason.nvim'}
-  }
+  -- use {'williamboman/mason.nvim'}
+  -- use {
+  --   'WhoIsSethDaniel/mason-tool-installer.nvim',
+  --   config = [[require('config.mason-tool-installer')]],
+  --   requires = {'williamboman/mason.nvim'}
+  -- }
   
   -- LSP
-  use {'williamboman/mason-lspconfig.nvim'}
-  use {'neovim/nvim-lspconfig'}
-  use {'jose-elias-alvarez/null-ls.nvim'}
-  use {
-    'folke/trouble.nvim',
-    config = function()
-      require("trouble").setup {}
-      vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
-    end
-  }
+  -- use {'williamboman/mason-lspconfig.nvim'}
+  -- use {'neovim/nvim-lspconfig'}
+  -- use {'jose-elias-alvarez/null-ls.nvim'}
+  -- use {
+  --   'folke/trouble.nvim',
+  --   config = function()
+  --     require("trouble").setup {}
+  --     vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
+  --   end
+  -- }
 
   -- others
   use {'machakann/vim-highlightedyank'}
@@ -117,10 +117,10 @@ return require("packer").startup({function(use)
   use {'tpope/vim-repeat'}
   use {'tpope/vim-surround'}
   use {'tpope/vim-unimpaired'}
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+  -- use({
+  --   "iamcco/markdown-preview.nvim",
+  --   run = function() vim.fn["mkdp#util#install"]() end,
+  -- })
   use {
     'kyazdani42/nvim-web-devicons',
     conifg = function()
