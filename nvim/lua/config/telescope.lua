@@ -3,8 +3,8 @@ if not status_ok then
   return
 end
 
-telescope.load_extension('fzf')
-telescope.load_extension('neoclip')
+-- telescope.load_extension('fzf')
+-- telescope.load_extension('neoclip')
 
 vim.keymap.set("n", "<leader>ff", '<Cmd>Telescope find_files<CR>', {silent = true})
 vim.keymap.set("n", "<leader>fa", '<Cmd>Telescope find_files hidden=true no_ignore=true<CR>', {silent = true})
@@ -17,4 +17,4 @@ vim.keymap.set("n", "<leader>ft", '<Cmd>Telescope<CR>', {silent = true})
 
 -- call neoclip with plus argument to copy selection to plus register which
 -- is the shared register on WSL https://github.com/AckslD/nvim-neoclip.lua#usage
-vim.keymap.set("n", "<space>p", '<Cmd>Telescope neoclip<CR>', {silent = true})
+-- vim.keymap.set("n", "<space>p", '<Cmd>Telescope neoclip<CR>', {silent = true})

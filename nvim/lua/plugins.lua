@@ -7,28 +7,29 @@ return require("packer").startup({function(use)
 
   -- Search
   use {
-		{
+		-- {
 			'nvim-telescope/telescope.nvim',
 			requires = {
 				'nvim-lua/plenary.nvim',
-				'nvim-lua/popup.nvim',
-				'telescope-fzf-native.nvim'
+				'nvim-lua/popup.nvim'
+				-- 'telescope-fzf-native.nvim'
 			},
 			config =[[require('config.telescope')]]
-		},
-		{
-			'nvim-telescope/telescope-fzf-native.nvim',
-			run = 'make'
-		},
-		{
-			'AckslD/nvim-neoclip.lua',
-			config = function()
-				-- yank to plus register to see yank history. 
-				-- Is required cause i use plus as nvim default register for yank/put
-				require("neoclip").setup({default_register={'+'}})
-			end
-		}
-}
+		-- }
+		-- {
+		-- 	'nvim-telescope/telescope-fzf-native.nvim',
+		-- 	run = 'make'
+		-- },
+		-- {
+			-- 'AckslD/nvim-neoclip.lua',
+			-- config = function()
+				-- -- yank to plus register to see yank history. 
+				-- -- Is required cause i use plus as nvim default register for yank/put
+				-- require("neoclip").setup({default_register={'+'}})
+			-- end
+		-- }
+  }
+
     -- statusline
   -- statusline
   use {
@@ -79,10 +80,10 @@ return require("packer").startup({function(use)
   -- }
 
   -- git
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   config = [[require('config.gitsigns')]]
-  -- }
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = [[require('config.gitsigns')]]
+  }
 
   -- movement
   use {
