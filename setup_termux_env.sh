@@ -18,3 +18,6 @@ ln -sf $SCRIPTPATH/nvim/lua/plugins.lua /${XDG_CONFIG_HOME:-$HOME/.config}/nvim/
 sh -c 'git clone --depth 1 https://github.com/wbthomason/packer.nvim "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/packer/start/packer.nvim'
 # ~/.local/bin/nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' 
 # $SCRIPTPATH/install/nvim_install.sh
+
+ln -sf $SCRIPTPATH/termux/termux $HOME/.termux
+ln -sf $SCRIPTPATH/termux/shortcuts $HOME/.shortcuts
