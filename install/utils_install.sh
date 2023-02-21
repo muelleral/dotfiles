@@ -3,7 +3,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # get path to th
 
 BAT_VERSION=0.21.0
 DELTA_VERSION=0.13.0
-LAZYGIT_VERSION=0.36.0
+LAZYGIT_VERSION=0.37.0
 RIPGREP_VERSION=13.0.0
 
 mkdir -p ~/.local/bin
