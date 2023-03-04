@@ -3,9 +3,6 @@ local g = vim.g -- global vim variables
 local cmd = vim.cmd
 local keymap = vim.keymap.set
 
---leader/local leader
-g.mapleader = [[,]]
-g.maplocalleader = [[,]]
 
 -- Terminal Mode
 ----------------

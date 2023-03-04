@@ -1,149 +1,183 @@
-return require("packer").startup({function(use)
-  use 'wbthomason/packer.nvim'
-  use "lewis6991/impatient.nvim" -- speeds up nvim start
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+--leader/local leader
+vim.g.mapleader = [[,]]
+vim.g.maplocalleader = [[,]]
+
+require('lazy').setup({
+   "lewis6991/impatient.nvim", -- speeds up nvim start
 
   -- colorscheme
-  use {"EdenEast/nightfox.nvim", config = function() vim.cmd [[colorscheme nordfox]] end}
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme nordfox]])
+    end,
+  },
+
 
   -- Search
-  use {
-		{
-			'nvim-telescope/telescope.nvim',
-			requires = {
-				'nvim-lua/plenary.nvim',
-				'nvim-lua/popup.nvim',
-				'telescope-fzf-native.nvim'
-			},
-			config =[[require('config.telescope')]]
-		},
-		{
-			'nvim-telescope/telescope-fzf-native.nvim',
-			run = 'make'
-		},
-		{
-			'AckslD/nvim-neoclip.lua',
-			config = function()
-				-- yank to plus register to see yank history. 
-				-- Is required cause i use plus as nvim default register for yank/put
-				require("neoclip").setup({default_register={'+'}})
+  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' },
+			config = function ()
+			 require('config.telescope')
 			end
-		}
-}
-    -- statusline
+  },
+  {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make',
+    cond = function()
+      return vim.fn.executable 'make' == 1
+    end,
+  },
+
+
+		{
+		 	'AckslD/nvim-neoclip.lua',
+      dependencies = {'nvim-telescope/telescope.nvim'},
+		 	config = function()
+		 		-- yank to plus register to see yank history. 
+		 		-- Is required ca i  plus as nvim default register for yank/put
+		 		require("neoclip").setup({default_register={'+'}})
+		 	end
+		 },
+     
   -- statusline
-  use {
+   {
     'nvim-lualine/lualine.nvim',
-    config = [[require('config.lualine')]]
-  }
+    config = function()
+      require('config.lualine')
+    end
+  },
 
   -- terminal
-  use {
+   {
     'voldikss/vim-floaterm',
-    config = [[require('config.floaterm')]]
-  }
+    config = function()
+      require('config.floaterm')
+    end
+  },
 
-  -- completion
-  use {
-    {
-      'hrsh7th/nvim-cmp',
-      requires = {
-        'onsails/lspkind-nvim',
-        'L3MON4D3/LuaSnip',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
-        'rafamadriz/friendly-snippets'
-      },
-      config = [[require('config.cmp')]]
-    },
-    {
-      'L3MON4D3/LuaSnip',
-      config = [[require('config.luasnip')]]
-    }
-  }
+  -- -- completion
+   -- {
+   --  {
+   --    'hrsh7th/nvim-cmp',
+   --    requires = {
+   --      'onsails/lspkind-nvim',
+   --      'L3MON4D3/LuaSnip',
+   --      'hrsh7th/cmp-buffer',
+   --      'hrsh7th/cmp-nvim-lua',
+   --      'hrsh7th/cmp-nvim-lsp',
+   --      'hrsh7th/cmp-path',
+   --      'saadparwaiz1/cmp_luasnip',
+   --      'rafamadriz/friendly-snippets'
+   --    },
+   --    config = [[require('config.cmp')]]
+   --  },
+   --  {
+   --    'L3MON4D3/LuaSnip',
+   --    config = [[require('config.luasnip')]]
+   --  }
+  -- }
 
   -- indentation
-  use {
+   {
     "lukas-reineke/indent-blankline.nvim",
-    config = [[require('config.indent-blankline')]]
-  }
+    config = function() require('config.indent-blankline') end
+  },
 
   -- treesitter
-  use {
+   {
     'nvim-treesitter/nvim-treesitter',
     requires = {"p00f/nvim-ts-rainbow"},
     config = [[require('config.treesitter')]],
     run = ':TSUpdate'
   }
 
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    config = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  },
+
   -- git
-  use {
+   {
     'lewis6991/gitsigns.nvim',
-    config = [[require('config.gitsigns')]]
-  }
+    config = function() require('config.gitsigns') end
+  },
 
   -- movement
-  use {
+   {
     'justinmk/vim-sneak',
-    config = [[require('config.sneak')]]
+    config = function() require('config.sneak') end
   }
 
-  -- Package Manager
-  use {'williamboman/mason.nvim'}
-  use {
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
-    config = [[require('config.mason-tool-installer')]],
-    requires = {'williamboman/mason.nvim'}
-  }
+  -- -- Package Manager
+   -- {'williamboman/mason.nvim'}
+   -- {
+   --  'WhoIsSethDaniel/mason-tool-installer.nvim',
+   --  config = [[require('config.mason-tool-installer')]],
+   --  requires = {'williamboman/mason.nvim'}
+  -- }
   
-  -- LSP
-  use {'williamboman/mason-lspconfig.nvim'}
-  use {'neovim/nvim-lspconfig'}
-  use {'jose-elias-alvarez/null-ls.nvim'}
-  use {
-    'folke/trouble.nvim',
-    config = function()
-      require("trouble").setup {}
-      vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
-    end
-  }
+  -- -- LSP
+   -- {'williamboman/mason-lspconfig.nvim'}
+   -- {'neovim/nvim-lspconfig'}
+   -- {'jose-elias-alvarez/null-ls.nvim'}
+   -- {
+   --  'folke/trouble.nvim',
+   --  config = function()
+   --    require("trouble").setup {}
+   --    vim.api.nvim_exec([[nmap <F12> :TroubleToggle document_diagnostics<CR>]], false)
+   --  end
+  -- }
 
-  -- others
-  use {'machakann/vim-highlightedyank'}
-  use {'nelstrom/vim-visual-star-search'}
-  use {'tpope/vim-commentary'}
-  use {'tpope/vim-repeat'}
-  use {'tpope/vim-surround'}
-  use {'tpope/vim-unimpaired'}
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
-  use {
-    'kyazdani42/nvim-web-devicons',
-    conifg = function()
-      require'nvim-web-devicons'.setup {}
-    end
-  }
+   -- others
+    'machakann/vim-highlightedyank',
+    'nelstrom/vim-visual-star-search',
+    'tpope/vim-commentary',
+    'tpope/vim-repeat',
+    'tpope/vim-surround',
+    'tpope/vim-unimpaired',
+  -- ({
+   --  "iamcco/markdown-preview.nvim",
+   --  run = function() vim.fn["mkdp#util#install"]() end,
+  -- })
+   -- {
+   --  'kyazdani42/nvim-web-devicons',
+   --  conifg = function()
+   --    require'nvim-web-devicons'.setup {}
+   --  end
+  -- }
 
   -- private plugins
   -- private plugins needs to be available in private.plugins.lua.
   -- It must contain a get_plugins fuction which returns a valid packer config as table.
-  local private_config_available, private_config = pcall(require, "private.plugins")
-  if private_config_available then
-    local private_plugins = private_config.get_plugins()
-    for _, plugin in ipairs(private_plugins) do
-      use(plugin)
-    end
-  end
+  -- local private_config_available, private_config = pcall(require, "private.plugins")
+  -- if private_config_available then
+  --   local private_plugins = private_config.get_plugins()
+  --   for _, plugin in ipairs(private_plugins) do
+  --     use(plugin)
+  --   end
+  -- end
 
-end,
--- config packer to use floating window
-config = {
-  display = {
-    open_fn = require('packer.util').float,
-  }
-}})
+})
 
