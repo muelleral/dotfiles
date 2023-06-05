@@ -51,7 +51,7 @@ return {
     end,
   },
   {
-    "windwp/nvim-spectre",
+    "nvim-pack/nvim-spectre",
     keys = {
       {
         "<leader>rr",
