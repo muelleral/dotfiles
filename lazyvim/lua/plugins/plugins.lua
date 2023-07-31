@@ -37,11 +37,18 @@ return {
       },
     },
   },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   keys = {
+  --     { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<CR>" },
+  --   },
+  --   opts = {
+  --     servers = {
+  --       clangd = {},
+  --     },
+  --   },
+  -- },
   {
-    "neovim/nvim-lspconfig",
-    keys = {
-      { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<CR>" },
-    },
     "folke/which-key.nvim",
     opts = function()
       require("which-key").register({
@@ -87,9 +94,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
-        "c",
         "cmake",
-        "cpp",
         "dockerfile",
         "help",
         "json",
@@ -109,7 +114,6 @@ return {
       ensure_installed = {
         -- LSP
         "bash-language-server",
-        "clangd",
         "cmake-language-server",
         "dockerfile-language-server",
         "json-lsp",
@@ -118,12 +122,10 @@ return {
         "yaml-language-server",
 
         -- DAP
-        "cpptools",
         "debugpy",
 
         -- Linters and Formatter
         "black",
-        "clang-format",
         "flake8",
         "isort",
         "pylint",
