@@ -95,7 +95,6 @@ return {
       ensure_installed = {
         "bash",
         "cmake",
-        "dockerfile",
         "help",
         "json",
         "lua",
@@ -115,7 +114,6 @@ return {
         -- LSP
         "bash-language-server",
         "cmake-language-server",
-        "dockerfile-language-server",
         "json-lsp",
         "lua-language-server",
         "pyright",
