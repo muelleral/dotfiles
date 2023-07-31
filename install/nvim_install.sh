@@ -5,7 +5,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )" # get path to th
 INSTALL_NVIM=${INSTALL_NVIM:-NO}
 INSTALL_ALL=${INSTALL_ALL:-YES}
 
-NVIM_VERSION=v0.8.0
+NVIM_VERSION=v0.9.1
 
 installNvim() {
   # install nvim as appimage (in sugguested location ${HOME}/Applications/ or ${HOME}/.local/bin/ or ${HOME}/bin/)
