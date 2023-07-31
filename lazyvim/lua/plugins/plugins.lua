@@ -37,17 +37,25 @@ return {
       },
     },
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   keys = {
-  --     { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<CR>" },
-  --   },
-  --   opts = {
-  --     servers = {
-  --       clangd = {},
-  --     },
-  --   },
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--header-insertion=iwyu",
+            "--completion-style=detailed",
+            "--function-arg-placeholders",
+            "--fallback-style=llvm",
+            "--path-mappings=/code=/code/out",
+          },
+        },
+      },
+    },
+  },
   {
     "folke/which-key.nvim",
     opts = function()
