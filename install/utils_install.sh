@@ -66,3 +66,5 @@ mkdir ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit
 ln -s $SCRIPTPATH/../lazygit/config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/config.yml
 ln -s $SCRIPTPATH/../lazygit/lg_nvim_config.yml ${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/lg_nvim_config.yml
 cd -
+
+sudo apt-get install wl-clipboard -y
