@@ -139,4 +139,20 @@ return {
       },
     },
   },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.sources = opts.sources or {}
+      vim.list_extend(opts.sources, {
+        -- python
+        nls.builtins.diagnostics.flake8,
+        nls.builtins.diagnostics.pylint,
+        nls.builtins.formatting.black.with({
+          extra_args = { "--line-length", "80" },
+        }),
+        nls.builtins.formatting.isort,
+      })
+    end,
+  },
 }
