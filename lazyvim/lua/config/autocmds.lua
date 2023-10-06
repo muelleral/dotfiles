@@ -7,3 +7,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.b.autoformat = false
   end,
 })
+
+-- Must be last lines in this file
+if pcall(require, "private.autocmds") then
+  require("private.autocmds")
+end
