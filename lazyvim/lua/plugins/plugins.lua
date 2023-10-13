@@ -21,23 +21,6 @@ return {
     },
   },
   {
-    "voldikss/vim-floaterm",
-    config = function()
-      vim.g.floaterm_height = 0.99
-      vim.g.floaterm_width = 0.99
-      vim.g.floaterm_opener = "edit"
-    end,
-    keys = {
-      { "<F6>", "<cmd>FloatermNew ranger<cr>" },
-      { "<F7>", "<cmd>FloatermToggle<cr>" },
-      { "<F7>", [[<c-\><c-n>:FloatermToggle<cr>]], mode = "t" },
-      {
-        "<F5>",
-        [[:FloatermNew lazygit --use-config-file=${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/config.yml,${XDG_CONFIG_HOME:-$HOME/.config}/lazygit/lg_nvim_config.yml<CR>]],
-      },
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
