@@ -151,19 +151,27 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = opts.sources or {}
-      vim.list_extend(opts.sources, {
-        -- python
-        nls.builtins.diagnostics.flake8,
-        nls.builtins.diagnostics.pylint,
-        nls.builtins.formatting.black.with({
-          extra_args = { "--line-length", "80" },
-        }),
-        nls.builtins.formatting.isort,
-      })
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        python = { "pylint", "flake8" },
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ["python"] = { "isort", "black" },
+      },
+    },
+    -- This function is optional, but if you want to customize formatters do it here
+    config = function(_, opts)
+      local util = require("conform.util")
+      util.add_formatter_args(require("conform.formatters.black"), { "--line-length", "80" })
+      require("conform").setup(opts)
     end,
   },
 }
