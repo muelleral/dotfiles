@@ -1,0 +1,18 @@
+{
+  "clangd": {
+    "prefix": "implicit_includes",
+    "body": [
+      "if(CMAKE_EXPORT_COMPILE_COMMANDS)",
+      " set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})",
+      "endif()"
+    ],
+    "description": "Adds also implicit include directories to compile database"
+  },
+  "compile_commands": {
+    "prefix": "compile_commands",
+    "body": [
+      "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)"
+    ],
+    "description": "Code snippet to enable compile commands"
+  }
+}

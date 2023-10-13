@@ -1,0 +1,20 @@
+{
+  "include once": {
+    "prefix": "once",
+    "body": [
+      "#ifndef ${TM_FILENAME/(.*)/${1:/upcase}/}",
+      "#define ${TM_FILENAME/(.*)/${1:/upcase}/}",
+      "$0",
+      "",
+      "#endif /* ${TM_FILENAME/(.*)/${1:/upcase}/} */"
+    ],
+    "description": "Header include guard"
+  },
+  "todo": {
+    "prefix": "todo",
+    "body": [
+      "// TODO: $0"
+    ],
+    "description": "Code snippet for adding a TODO: comment"
+  }
+}
