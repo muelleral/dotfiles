@@ -149,12 +149,11 @@ return {
       formatters_by_ft = {
         ["python"] = { "isort", "black" },
       },
+      formatters = {
+        black = {
+          args = { "--line-length", "80" },
+        },
+      },
     },
-    -- This function is optional, but if you want to customize formatters do it here
-    config = function(_, opts)
-      local util = require("conform.util")
-      util.add_formatter_args(require("conform.formatters.black"), { "--line-length", "80" })
-      require("conform").setup(opts)
-    end,
   },
 }
