@@ -3,7 +3,7 @@
     "prefix": "implicit_includes",
     "body": [
       "if(CMAKE_EXPORT_COMPILE_COMMANDS)",
-      " set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES ${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES})",
+      " set(CMAKE_CXX_STANDARD_INCLUDE_DIRECTORIES \\${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES\\})",
       "endif()"
     ],
     "description": "Adds also implicit include directories to compile database"
