@@ -7,8 +7,6 @@ return {
     },
   },
   {
-    },
-  {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
@@ -77,48 +75,6 @@ return {
         '<cmd>lua require("spectre").open_file_search()<CR>',
         desc = "Search visual selection in file",
         mode = "v",
-      },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "cmake",
-        -- "help",
-        "json",
-        -- "lua",
-        "make",
-        "markdown",
-        "python",
-        "toml",
-        "vim",
-        "yaml",
-      },
-    },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        -- LSP
-        "bash-language-server",
-        "cmake-language-server",
-        "json-lsp",
-        -- "lua-language-server",
-        "pyright",
-        "yaml-language-server",
-
-        -- DAP
-        "debugpy",
-
-        -- Linters and Formatter
-        "black",
-        "flake8",
-        "isort",
-        "pylint",
-        -- "stylua",
       },
     },
   },
