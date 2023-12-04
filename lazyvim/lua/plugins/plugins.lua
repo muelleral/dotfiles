@@ -43,6 +43,7 @@ return {
       require("which-key").register({
         mode = { "n", "v" },
         ["<leader>r"] = { name = "+replace" },
+        ["<leader>a"] = { name = "+search all" },
       })
     end,
   },
@@ -109,6 +110,33 @@ return {
         black = {
           args = { "--line-length", "80" },
         },
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      -- add a keymap to browse plugin files
+      {
+        "<leader>af",
+        function()
+          require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
+        end,
+        desc = "Find all Files",
+      },
+      {
+        "<leader>ag",
+        function()
+          require("telescope.builtin").live_grep({ additional_args = { "--hidden", "--no-ignore" } })
+        end,
+        desc = "Live Grep all Files",
+      },
+      {
+        "<leader>aw",
+        function()
+          require("telescope.builtin").grep_string({ additional_args = { "--hidden", "--no-ignore" } })
+        end,
+        desc = "String Grep all Files",
       },
     },
   },
