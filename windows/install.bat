@@ -20,6 +20,13 @@ set "linkDest=%installBatchPath%alacritty\alacritty.yml"
 mklink "%link%" "%linkDest%"
 ::echo alacritty: "%link%" "%linkDest%"
 
+::Create symlink for wezterm
+mkdir %APPDATA%\wezterm
+set "link=%APPDATA%\wezterm\wezterm.lua"
+set "linkDest=%installBatchPath%..\wezterm\wezterm.lua"
+mklink "%link%" "%linkDest%"
+::echo wezterm: "%link%" "%linkDest%"
+
 ::Create symlink for neovim
 set "nvim_config_xdg_path=%APPDATA%\nvim"
 set "nvim_config_path=%installBatchPath%..\nvim"
