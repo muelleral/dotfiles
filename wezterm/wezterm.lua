@@ -15,20 +15,17 @@ config.default_prog = { "wsl", "-d", "Ubuntu-22.04", "--cd", "~" }
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 config.keys = {
-	{ mods = "LEADER", key = "k", action = act.ActivatePaneDirection("Up") },
-	{ mods = "LEADER", key = "j", action = act.ActivatePaneDirection("Down") },
-	{ mods = "LEADER", key = "l", action = act.ActivatePaneDirection("Right") },
-	{ mods = "LEADER", key = "h", action = act.ActivatePaneDirection("Left") },
+	{ mods = "LEADER", key = "n", action = act.ActivatePaneDirection("Up") },
+	{ mods = "LEADER", key = "t", action = act.ActivatePaneDirection("Down") },
+	{ mods = "LEADER", key = "r", action = act.ActivatePaneDirection("Right") },
+	{ mods = "LEADER", key = "d", action = act.ActivatePaneDirection("Left") },
 	{ mods = "LEADER", key = "c", action = act.SpawnTab("CurrentPaneDomain") },
 	{ mods = "LEADER", key = "|", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "-", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ mods = "LEADER", key = "z", action = act.TogglePaneZoomState },
-	{ mods = mod, key = "l", action = act({ ActivateTabRelative = 1 }) },
-	{ mods = mod, key = "h", action = act({ ActivateTabRelative = -1 }) },
+	{ mods = mod, key = "r", action = act({ ActivateTabRelative = 1 }) },
+	{ mods = mod, key = "d", action = act({ ActivateTabRelative = -1 }) },
 	{ mods = "LEADER", key = "f", action = act.ToggleFullScreen },
-	{ mods = "LEADER", key = "t", action = act.ShowLauncherArgs({ flags = "FUZZY|TABS" }) },
-	{ mods = "LEADER", key = "w", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
-	{ mods = "LEADER", key = "d", action = act.ShowLauncherArgs({ flags = "FUZZY|DOMAINS" }) },
 }
 
 return config
