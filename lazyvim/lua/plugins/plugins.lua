@@ -140,4 +140,96 @@ return {
       },
     },
   },
+  {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      defaults = {
+        ["<leader>o"] = { name = "+obsidian" },
+      },
+    },
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    optional = true,
+    opts = function(_, opts)
+      local projects = {
+        action = "ObsidianQuickSwitch",
+        desc = " Obsidian-Notes",
+        icon = "󱓩 ",
+        key = "o",
+      }
+
+      projects.desc = projects.desc .. string.rep(" ", 43 - #projects.desc)
+      projects.key_format = "  %s"
+
+      table.insert(opts.config.center, 3, projects)
+    end,
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = false,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      notes_subdir = "0_inbox",
+      note_id_func = function(title)
+        -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+        -- In this case a note with the title 'My new note' will be given an ID that looks
+        -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+        local suffix = ""
+        if title ~= nil then
+          -- If title is given, transform it into valid file name.
+          suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+        else
+          -- If title is nil, just add 4 random uppercase letters to the suffix.
+          for _ = 1, 4 do
+            suffix = suffix .. string.char(math.random(65, 90))
+          end
+        end
+        return tostring(os.date("%Y%m%d%H%M")) .. "-" .. suffix
+      end,
+    },
+    keys = {
+      -- add a keymap to browse plugin files
+      {
+        "<leader>on",
+        "<cmd>ObsidianNew<cr>",
+        desc = "New Obsidian File",
+      },
+      {
+        "<leader>fo",
+        "<cmd>ObsidianQuickSwitch<cr>",
+        desc = "ObsidianQuickSwitch",
+      },
+      {
+        "<leader>of",
+        "<cmd>ObsidianQuickSwitch<cr>",
+        desc = "ObsidianQuickSwitch",
+      },
+      {
+        "<leader>os",
+        "<cmd>ObsidianSearch<cr>",
+        desc = "ObsidianSearch",
+      },
+      {
+        "<leader>ot",
+        "<cmd>ObsidianTemplate<cr>",
+        desc = "ObsidianTemplate",
+      },
+      {
+        "<leader>od",
+        "<cmd>ObsidianToday<cr>",
+        desc = "ObsidianToday",
+      },
+      {
+        "<leader>oy",
+        "<cmd>ObsidianYesterday<cr>",
+        desc = "ObsidianYesterday",
+      },
+    },
+  },
 }
