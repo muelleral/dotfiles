@@ -28,6 +28,8 @@ if vim.fn.has("wsl") == 1 then
   end
 end
 
+vim.opt.conceallevel = 1
+
 -- Must be last lines in this file
 if pcall(require, "private.options") then
   require("private.options")
