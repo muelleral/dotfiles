@@ -232,4 +232,25 @@ return {
       },
     },
   },
+  {
+    "williamboman/mason.nvim",
+    optional = true,
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "cpptools" })
+      end
+    end,
+  },
+  { "alfaix/neotest-gtest" },
+  {
+    "nvim-neotest/neotest",
+    opts = function(_, opts)
+      table.insert(
+        opts.adapters,
+        require("neotest-gtest").setup({
+          mappings = { configure = nil },
+        })
+      )
+    end,
+  },
 }
