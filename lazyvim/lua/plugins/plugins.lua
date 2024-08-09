@@ -54,6 +54,7 @@ return {
     opts = {
       linters_by_ft = {
         python = { "pylint", "flake8" },
+        ["*"] = { "codespell", "cspell" },
       },
     },
   },
@@ -188,7 +189,7 @@ return {
     optional = true,
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "cpptools" })
+        vim.list_extend(opts.ensure_installed, { "cpptools", "cspell", "codespell" })
       end
     end,
   },
