@@ -126,6 +126,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = {
+      ui = { enable = false },
       notes_subdir = "0_inbox",
       note_id_func = function(title)
         -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
