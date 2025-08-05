@@ -28,6 +28,7 @@ if vim.fn.has("wsl") == 1 then
   end
 end
 
+vim.g.lazyvim_picker = "snacks"
 
 -- Must be last lines in this file
 if pcall(require, "private.options") then
