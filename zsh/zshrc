@@ -5,7 +5,7 @@ unsetopt BEEP # disbale bell
 #######################################################################################################################
 # Oh-my-zsh settings
 #######################################################################################################################
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 plugins=(
     colored-man-pages
@@ -21,7 +21,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/forgit/forgit.plugin.zsh
 source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
-source $ZSH_DOT_DIR/p10k.zsh
+
+# Initialize starship prompt
+eval "$(starship init zsh)"
 
 # Zsh plugin key bindings
 # accept the suggestion 
