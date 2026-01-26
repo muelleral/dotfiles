@@ -19,7 +19,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/plugins/forgit/forgit.plugin.zsh
 source $ZSH/custom/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
 
 # Initialize starship prompt
