@@ -3,7 +3,7 @@
     "betaFeatures": false,
     "legacyMode": false,
     "openBehavior": "popup",
-    "saveBehavior": "copyToClipboard",
+    "saveBehavior": "addToObsidian",
     "showMoreActionsButton": false,
     "silentOpen": false
   },
@@ -73,10 +73,6 @@
       "defaultValue": "{{schema:thumbnailUrl|slice:0}}",
       "name": "image",
       "type": "text"
-    },
-    {
-      "name": "topics",
-      "type": "multitext"
     }
   ],
   "reader_settings": {
@@ -97,14 +93,14 @@
     "pinPlayer": true
   },
   "stats": {
-    "addToObsidian": 4,
-    "copyToClipboard": 17,
+    "addToObsidian": 0,
+    "copyToClipboard": 11,
     "saveFile": 0,
     "share": 0
   },
   "template_1783344778308sr60qohov": {
     "id": "1783344778308sr60qohov",
-    "name": "C++",
+    "name": "Default",
     "behavior": "create",
     "noteNameFormat": "{{title}}",
     "path": "Clippings",
@@ -160,12 +156,6 @@
         "type": "text"
       },
       {
-        "id": "17895599334716tm527xhy",
-        "name": "topics",
-        "value": "[[cpp]]",
-        "type": "multitext"
-      },
-      {
         "id": "17848945155884malcj7y6",
         "name": "processed",
         "value": "",
@@ -215,12 +205,6 @@
         "name": "content_type",
         "value": "[[ai-chat]]",
         "type": "text"
-      },
-      {
-        "id": "17895828959725wq8nc0ux",
-        "name": "topics",
-        "value": "",
-        "type": "multitext"
       },
       {
         "id": "1784894780521a04pjc4v8",
@@ -296,12 +280,6 @@
         "type": "text"
       },
       {
-        "id": "1789560265445m7pvdjlle",
-        "name": "topics",
-        "value": "",
-        "type": "multitext"
-      },
-      {
         "id": "1784894757571085h531y5",
         "name": "processed",
         "value": "",
@@ -314,154 +292,8 @@
     "id": "1784894657371sjxy2b5",
     "context": ""
   },
-  "template_17895603009093ulkw3uds": {
-    "id": "17895603009093ulkw3uds",
-    "name": "Default",
-    "behavior": "create",
-    "noteNameFormat": "{{title}}",
-    "path": "Clippings",
-    "noteContentFormat": "{{content}}",
-    "context": "",
-    "properties": [
-      {
-        "id": "1783344778308osylghx5s",
-        "name": "title",
-        "value": "{{title}}",
-        "type": "text"
-      },
-      {
-        "id": "1783344778308lln221nox",
-        "name": "source",
-        "value": "{{url}}",
-        "type": "text"
-      },
-      {
-        "id": "17833447783083m40liix7",
-        "name": "author",
-        "value": "{{author|split:\\\", \\\"|wikilink|join}}",
-        "type": "multitext"
-      },
-      {
-        "id": "1783344778308r9jvm0vft",
-        "name": "published",
-        "value": "{{published}}",
-        "type": "date"
-      },
-      {
-        "id": "1783344778308ci5zzed6b",
-        "name": "created",
-        "value": "{{date}}",
-        "type": "date"
-      },
-      {
-        "id": "178334477830848yd31ur4",
-        "name": "description",
-        "value": "{{description}}",
-        "type": "text"
-      },
-      {
-        "id": "1783344778308e82k8faqy",
-        "name": "categories",
-        "value": "[[clippings]]",
-        "type": "text"
-      },
-      {
-        "id": "17848944985084mzffhc33",
-        "name": "content_type",
-        "value": "[[articles]]",
-        "type": "text"
-      },
-      {
-        "id": "17895599334716tm527xhy",
-        "name": "topics",
-        "value": "",
-        "type": "multitext"
-      },
-      {
-        "id": "17848945155884malcj7y6",
-        "name": "processed",
-        "value": "",
-        "type": "checkbox"
-      }
-    ],
-    "triggers": []
-  },
-  "template_1789560341555tj9nyti2h": {
-    "id": "1789560341555tj9nyti2h",
-    "name": "C++ templates",
-    "behavior": "create",
-    "noteNameFormat": "{{title}}",
-    "path": "Clippings",
-    "noteContentFormat": "{{content}}",
-    "context": "",
-    "properties": [
-      {
-        "id": "1783344778308osylghx5s",
-        "name": "title",
-        "value": "{{title}}",
-        "type": "text"
-      },
-      {
-        "id": "1783344778308lln221nox",
-        "name": "source",
-        "value": "{{url}}",
-        "type": "text"
-      },
-      {
-        "id": "17833447783083m40liix7",
-        "name": "author",
-        "value": "{{author|split:\\\", \\\"|wikilink|join}}",
-        "type": "multitext"
-      },
-      {
-        "id": "1783344778308r9jvm0vft",
-        "name": "published",
-        "value": "{{published}}",
-        "type": "date"
-      },
-      {
-        "id": "1783344778308ci5zzed6b",
-        "name": "created",
-        "value": "{{date}}",
-        "type": "date"
-      },
-      {
-        "id": "178334477830848yd31ur4",
-        "name": "description",
-        "value": "{{description}}",
-        "type": "text"
-      },
-      {
-        "id": "1783344778308e82k8faqy",
-        "name": "categories",
-        "value": "[[clippings]]",
-        "type": "text"
-      },
-      {
-        "id": "17848944985084mzffhc33",
-        "name": "content_type",
-        "value": "[[articles]]",
-        "type": "text"
-      },
-      {
-        "id": "17895599334716tm527xhy",
-        "name": "topics",
-        "value": "[[cpp]], [[templates]]",
-        "type": "multitext"
-      },
-      {
-        "id": "17848945155884malcj7y6",
-        "name": "processed",
-        "value": "",
-        "type": "checkbox"
-      }
-    ],
-    "triggers": []
-  },
   "template_list": [
-    "17895603009093ulkw3uds",
     "1783344778308sr60qohov",
-    "1789560341555tj9nyti2h",
     "1784894657371sjxy2b5",
     "1784878234593xfw4841"
   ],
