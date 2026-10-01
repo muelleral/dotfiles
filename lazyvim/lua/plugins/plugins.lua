@@ -67,7 +67,7 @@ return {
         icon = "󱓩 ",
         key = "o",
         desc = "Obsidian Notes",
-        action = ":ObsidianQuickSwitch",
+        action = "<cmd>Obsidian quick_switch<cr>",
       })
     end,
   },
@@ -79,7 +79,7 @@ return {
       ui = { enable = false },
       notes_subdir = "0_inbox",
       picker = {
-        name = "snacks.pick",
+        name = "snacks.picker",
       },
       note_id_func = function(title)
         local suffix = ""
