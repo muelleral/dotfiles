@@ -34,6 +34,12 @@ return {
           vim.fn.stdpath("config") .. "/private_snippets",
         },
       })
+      require("luasnip.loaders.from_lua").load({
+        paths = {
+          vim.fn.stdpath("config") .. "/snippets",
+          vim.fn.stdpath("config") .. "/private_snippets",
+        },
+      })
     end,
   },
   {
